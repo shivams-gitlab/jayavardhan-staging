@@ -756,18 +756,35 @@ p { margin: 0 0 1em; color: var(--ink-soft); }
   padding: 0;
   border-top: 1px solid var(--line);
 }
-.booking-service-list li {
+/*.booking-service-list li {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
   gap: 12px;
   padding: 14px 0;
   border-bottom: 1px solid var(--line);
+}*/
+.booking-service-list li {
+  display: flex;
+  flex-direction: column; /* Stacks text cleanly for mobile/sidebar width */
+  gap: 4px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+}
+/* On screens/containers wide enough, put them side-by-side */
+@media (min-width: 480px) {
+  .booking-service-list li {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+  }
 }
 .booking-service-name {
   font-size: .95rem;
   font-weight: 600;
   color: var(--indigo);
+  white-space: nowrap; /* Prevents "10-min Audio" from breaking awkwardly */
 }
 .booking-service-price {
   font-family: var(--font-display);
@@ -776,10 +793,16 @@ p { margin: 0 0 1em; color: var(--ink-soft); }
   text-align: right;
   
 }
+@media (min-width: 480px) {
+  .booking-service-price {
+    text-align: right;
+  }
+}
 .booking-sidebar-note {
   font-size: .85rem;
   color: var(--ink-soft);
-  margin: 0;
+  margin: 0 0 6px 0;
+  line-height: 1.4;
 }
 .booking-sidebar-note a {
   color: var(--ink);
