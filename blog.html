@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<!--
+  blog.html — Blog index
+  ------------------------------------------------------------------
+  Lists every post with client-side search + tag filtering — all
+  powered by js/blog.js reading data/posts.json, no server/database
+  involved. The cards below #blog-grid are a static fallback (see
+  the comment inside that div) and get replaced the moment the data
+  loads successfully.
+  ------------------------------------------------------------------
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog — [Your Astrology Brand]</title>
+<meta name="description" content="Notes on Jyotish concepts, transits, and timing.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a href="index.html" class="brand">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.4"/>
+        <path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9 17 7M7 17l-2.1 2.1" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+      </svg>
+      Jayavardhan
+    </a>
+    <nav>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+      <ul class="nav-links">
+        <li><a href="index.html" aria-current="page">Services</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="horoscope.html">Monthly Horoscope</a></li>
+        <li><a href="donations.html">Donations</a></li>
+        <!--<li><a href="book-reading.html">Book a Reading</a></li>-->
+        <li class="nav-cta"><a href="book-reading.html" class="btn btn--primary" style="padding: 8px">Book Your Reading</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="page-header">
+  <div class="wrap">
+    <h1>The Blog</h1>
+    <p>Notes on Jyotish concepts, remedies, and timing written to be useful, not mystifying.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="blog-search">
+      <input type="search" id="blog-search-input" placeholder="Search posts by keyword or topic…" aria-label="Search blog posts">
+    </div>
+    <div class="blog-tags">
+      <button class="blog-tag-btn is-activepost-hero-img" data-tag="all">All</button>
+      <button class="blog-tag-btn" data-tag="basics">Basics</button>
+      <button class="blog-tag-btn" data-tag="transits">Transits</button>
+      <button class="blog-tag-btn" data-tag="timing">Timing</button>
+      <button class="blog-tag-btn" data-tag="muhurta">Muhurta</button>
+      <button class="blog-tag-btn" data-tag="gemstones">Gemstones</button>
+      <button class="blog-tag-btn" data-tag="research">Research</button>
+    </div>
+
+    <div class="blog-grid" id="blog-grid">
+      <!--
+        STATIC FALLBACK CONTENT.
+        js/blog.js overwrites everything inside this div as soon as it successfully
+        fetches data/posts.json. This fallback exists so the page never looks empty:
+        - if JavaScript is disabled,
+        - if the page is opened as a local file (file://) instead of via a real
+          server, since browsers block fetch() of local JSON files for security
+          reasons — see the README for how to preview this site locally.
+        Keep this in sync with data/posts.json if you add/remove posts by hand
+        (not required if you only use /admin, since /admin only edits the JSON).
+      -->
+      <a class="blog-card" href="blog/post.html?slug=rising-sign">
+        <div class="blog-card-img"><img src="images/blog-rising-sign.jpg" alt="" loading="lazy"></div>
+        <div class="blog-card-body">
+          <div class="blog-card-tag">Basics</div>
+          <h3>Understanding Your Rising Sign in Vedic Astrology</h3>
+          <p>Why your Ascendant shapes more of your chart's story than your Moon sign does.</p>
+          <div class="blog-card-date">August 1, 2026</div>
+        </div>
+      </a>
+      <a class="blog-card" href="blog/post.html?slug=saturn-return">
+        <div class="blog-card-img"><img src="images/blog-saturn-return.jpg" alt="" loading="lazy"></div>
+        <div class="blog-card-body">
+          <div class="blog-card-tag">Transits</div>
+          <h3>Saturn Return: What It Means and How to Navigate It</h3>
+          <p>The astrological rite of passage nearly everyone goes through in their late twenties.</p>
+          <div class="blog-card-date">August 10, 2026</div>
+        </div>
+      </a>
+      <a class="blog-card" href="blog/post.html?slug=muhurta-guide">
+        <div class="blog-card-img"><img src="images/blog-muhurta.jpg" alt="" loading="lazy"></div>
+        <div class="blog-card-body">
+          <div class="blog-card-tag">Timing</div>
+          <h3>How to Choose an Auspicious Date for Big Life Events</h3>
+          <p>A plain-language walkthrough of how Muhurta selection actually works.</p>
+          <div class="blog-card-date">August 20, 2026</div>
+        </div>
+      </a>
+    </div>
+    <p class="blog-empty" id="blog-empty">No posts match your search — try a different keyword.</p>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">Jayavardhan</div>
+        <p>Vedic astrology readings and guidance rooted in traditional Jyotish practice.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Site</h4>
+        <ul>
+          <li><a href="index.html">Home / Services</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="horoscope.html">Monthly Horoscope</a></li>
+          <li><a href="donations.html">Donations</a></li>
+          <li><a href="book-reading.html">Book a Reading</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="#">YouTube</a></li>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">Twitter</a></li>
+          <li><a href="mailto:hello@example.com">hello@example.com</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="terms.html">Terms &amp; Conditions</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="consent.html">Informed Consent &amp; Liability Waiver</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; <span id="year"></span> Jayavardhan. All rights reserved.</span>
+      <span>Made with care, under the stars.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/nav.js"></script>
+<script src="js/blog.js"></script>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<!--
+  donations.html — Donations
+  ------------------------------------------------------------------
+  Payments/donations info page. Fully static (no JS data-loading like
+  blog.html/horoscope.html) since this content changes rarely. Reuses
+  existing site components rather than inventing new ones:
+    - .page-header            same dark banner as other interior pages
+    - .section-head           same section title/subtitle pattern as Home
+    - .icon-grid / .icon-item  same 4-up icon list as Home's Features section
+    - .legal-body              same plain-prose text block as terms/privacy/consent
+    - .nak-list / .nak-row     same hairline-divided row list as Monthly Horoscope
+  Only a small "Payments" block of CSS is new (added to css/style.css,
+  clearly commented there) for the PayPal/UPI two-column layout and
+  the QR code image box — everything else below is existing classes.
+  ------------------------------------------------------------------
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Donations — [Your Astrology Brand]</title>
+<meta name="description" content="Cancellation policy, what to expect during a consultation, and how to send a donation or payment.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  /* .legal-body is the same plain-prose text style used on
+     terms.html/privacy.html/consent.html — repeated here rather than
+     added to the shared stylesheet, matching how those pages do it. */
+  .legal-body { max-width: 720px; }
+  .legal-body p { font-size: .98rem; color: var(--ink-soft); }
+
+  /* Payments section: PayPal + UPI side by side, divided the same
+     way .service-grid divides its cards (hairline border-left),
+     just as a simple 2-column variant. */
+  .pay-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-top: 1px solid var(--line);
+  }
+  .pay-card {
+    padding: 32px 30px;
+    border-left: 1px solid var(--line);
+  }
+  .pay-card:first-child { border-left: none; }
+  .pay-card h3 { margin-bottom: 8px; }
+  .pay-card .btn { margin-top: 10px; margin-bottom: 14px; }
+  .pay-qr {
+    width: 220px;
+    max-width: 100%;
+    aspect-ratio: 1 / 1;
+    background: var(--sand);
+    border: 1px solid var(--line);
+    margin: 10px 0 14px;
+    overflow: hidden;
+  }
+  .pay-qr img { width: 100%; height: 100%; object-fit: contain; }
+  .pay-upi-id { font-size: .95rem; color: var(--ink); }
+  .pay-note { font-size: .82rem; color: var(--ink-soft); font-style: italic; }
+
+  @media (max-width: 700px) {
+    .pay-grid { grid-template-columns: 1fr; }
+    .pay-card { border-left: none; border-top: 1px solid var(--line); }
+    .pay-card:first-child { border-top: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a href="index.html" class="brand">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.4"/>
+        <path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9 17 7M7 17l-2.1 2.1" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+      </svg>
+      Jayavardhan
+    </a>
+    <nav>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+      <ul class="nav-links">
+        <li><a href="index.html" aria-current="page">Services</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="horoscope.html">Monthly Horoscope</a></li>
+        <li><a href="donations.html">Donations</a></li>
+        <!--<li><a href="book-reading.html">Book a Reading</a></li>-->
+        <li class="nav-cta"><a href="book-reading.html" class="btn btn--primary" style="padding: 8px">Book Your Reading</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="page-header">
+  <div class="wrap">
+    <h1>Donations</h1>
+    <p>How donation-based readings work, what to expect during a consultation, and how to send a payment.</p>
+  </div>
+</section>
+
+
+<!-- ============ PAYMENTS: PAYPAL & UPI ============ -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>How to Send a Payment</h2>
+      <p>International clients to use PayPal, and clients in India should use UPI.</p>
+    </div>
+
+    <div class="pay-grid">
+
+      <div class="pay-card">
+        <h3>PayPal (Global)</h3>
+        <p>For donations and international payments (USD).</p>
+        <a href="https://paypal.me/YourAstrologyBrand" class="btn btn--ghost" target="_blank" rel="noopener">Pay via PayPal</a>
+        <p class="pay-note">Replace this link with your real PayPal.me link or business PayPal email before publishing.</p>
+      </div>
+
+      <div class="pay-card">
+        <h3>UPI (Indian Residents Only)</h3>
+        <p>Scan the QR code below with any UPI app (GPay, PhonePe, Paytm, etc.), or use the UPI ID directly.</p>
+        <div class="pay-qr">
+          <!-- Replace images/upi-qr.png with your real UPI QR code image -->
+          <img src="images/upi-qr.png" alt="UPI QR code for payments" loading="lazy">
+        </div>
+        <p class="pay-upi-id">UPI ID: <strong>yourhandle@upi</strong></p>
+        <p class="pay-note">Replace the QR image and UPI ID above with your real ones before publishing.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ PROCESS OF CONSULTATION ============ -->
+<section class="section section--tint">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Process of Consultation</h2>
+      <p>What happens between booking a reading and actually sitting down for one.</p>
+    </div>
+    <!-- Reusing the same icon-grid/icon-item pattern as Home's Features
+         section — just four sequential steps instead of four features. -->
+    <div class="icon-grid">
+      <div class="icon-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="4" y="5" width="16" height="16" rx="1"/><path d="M4 10h16M8 3v4M16 3v4" stroke-linecap="round"/></svg>
+        <h3>1. Submit Request</h3>
+        <p>Submit the booking form with your birth details. You'll get a confirmation email within 1–2 days to confirm acceptance of your request.</p>
+      </div>
+      <div class="icon-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 4h11l5 5v11H4z"/><path d="M15 4v5h5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <h3>2. Chart Preparation</h3>
+        <p>If booking is accepted, your chart is prepared in advance using your exact date, time, and place of birth - this is why accurate birth details matter.</p>
+      </div>
+      <div class="icon-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 4v16l4-4h12V4z"/></svg>
+        <h3>3. Live Session or Audio</h3>
+        <p>We meet live (video or phone) for readings and consultations, or you'll receive a recorded audio walkthrough for the 10-min Audio option.</p>
+      </div>
+      <div class="icon-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <h3>4. Payment / Donation</h3>
+        <p>Donation-based sessions are settled afterward, at whatever amount felt right to you. Paid consultations are settled at booking - see below.</p>
+      </div>
+    </div>
+    <p style="padding: 35px 0px;">*Some requests are NOT accepted due to certain reasons. In such cases, you will be asked to revisit after sometime, preferably after 40 days.</p>
+  </div>
+</section>
+
+<!-- ============ CANCELLATION POLICY ============ -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Cancellation, Rescheduling, Refunds Policy</h2>
+      <p>Please read before booking a donation-based or paid session.</p>
+    </div>
+    <div class="legal-body">
+      <p>If you wish to reschedule or cancel the appointment, please do let me know <b>72 hours ~ 3 days</b> prior to our meeting. I spend considerable time on preparing for each consultation, your timely communication will help me better manage my time.</p>
+      <p>If you cancel twice for the same consultation request, you would be considerably deprioritized for all your future requests.</p>
+      <p>No Refunds will be provided as payments are based on your satisfaction.</p>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="cta-band">
+  <div class="wrap">
+    <h2>Ready to Book?</h2>
+    <p>Once payment or donation details make sense to you, go ahead and book your session.</p>
+    <a href="book-reading.html" class="btn btn--primary">Book a Reading</a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">Jayavardhan</div>
+        <p>Vedic astrology readings and guidance rooted in traditional Jyotish practice.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Site</h4>
+        <ul>
+          <li><a href="index.html">Home / Services</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="horoscope.html">Monthly Horoscope</a></li>
+          <li><a href="donations.html">Donations</a></li>
+          <li><a href="book-reading.html">Book a Reading</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="#">YouTube</a></li>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">Twitter</a></li>
+          <li><a href="mailto:hello@example.com">hello@example.com</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="terms.html">Terms &amp; Conditions</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="consent.html">Informed Consent &amp; Liability Waiver</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; <span id="year"></span> Jayavardhan. All rights reserved.</span>
+      <span>Made with care, under the stars.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/nav.js"></script>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

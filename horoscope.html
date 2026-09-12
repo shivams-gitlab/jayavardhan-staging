@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<!--
+  horoscope.html — Monthly Horoscope
+  ------------------------------------------------------------------
+  Lists all 27 nakshatras with their ruling planet, this month's
+  transit date range, and a short prediction — plus a "Find Your
+  Nakshatra" row of jump-link buttons at the top. Both the button
+  row and the full list are rendered by js/horoscope.js from
+  data/horoscope.json (editable via /admin or by hand). The content
+  hard-coded in this file is a static fallback — see the comment
+  inside #nak-jump-grid below for why it's there.
+  ------------------------------------------------------------------
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Monthly Horoscope — [Your Astrology Brand]</title>
+<meta name="description" content="Monthly nakshatra-by-nakshatra predictions as the Moon transits through all 27 nakshatras.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a href="index.html" class="brand">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.4"/>
+        <path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9 17 7M7 17l-2.1 2.1" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+      </svg>
+      Jayavardhan
+    </a>
+    <nav>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+      <ul class="nav-links">
+        <li><a href="index.html" aria-current="page">Services</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="horoscope.html">Monthly Horoscope</a></li>
+        <li><a href="donations.html">Donations</a></li>
+        <!--<li><a href="book-reading.html">Book a Reading</a></li>-->
+        <li class="nav-cta"><a href="book-reading.html" class="btn btn--primary" style="padding: 8px">Book Your Reading</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="page-header">
+  <div class="wrap">
+    <h1>Monthly Horoscope</h1>
+    <p>Not your typical Gregorian month but the month personal to you, as the Moon transits your nakshatra we look ahead into the lunar month &mdash; here's the theme to expect.</p>
+  </div>
+</section>
+
+<section class="section" style="padding-bottom:0">
+  <div class="wrap">
+    <div class="nak-jump">
+      <h2 class="nak-jump-title">Find Your Nakshatra</h2>
+      <p class="nak-jump-sub">Not sure which one is yours? A birth chart reading will confirm it exactly.</p>
+      <div class="nak-jump-grid" id="nak-jump-grid">
+      <!--
+        STATIC FALLBACK CONTENT.
+        js/horoscope.js overwrites everything inside this div (and #nak-list below)
+        as soon as it successfully fetches data/horoscope.json. This fallback exists
+        so the page never looks empty — same reasoning as the blog page, see the
+        comment there and the README's "previewing locally" note.
+      -->
+        <a href="#nak-ashwini" class="nak-jump-btn">1. Ashwini</a>
+        <a href="#nak-bharani" class="nak-jump-btn">2. Bharani</a>
+        <a href="#nak-krittika" class="nak-jump-btn">3. Krittika</a>
+        <a href="#nak-rohini" class="nak-jump-btn">4. Rohini</a>
+        <a href="#nak-mrigashira" class="nak-jump-btn">5. Mrigashira</a>
+        <a href="#nak-ardra" class="nak-jump-btn">6. Ardra</a>
+        <a href="#nak-punarvasu" class="nak-jump-btn">7. Punarvasu</a>
+        <a href="#nak-pushya" class="nak-jump-btn">8. Pushya</a>
+        <a href="#nak-ashlesha" class="nak-jump-btn">9. Ashlesha</a>
+        <a href="#nak-magha" class="nak-jump-btn">10. Magha</a>
+        <a href="#nak-purva-phalguni" class="nak-jump-btn">11. Purva Phalguni</a>
+        <a href="#nak-uttara-phalguni" class="nak-jump-btn">12. Uttara Phalguni</a>
+        <a href="#nak-hasta" class="nak-jump-btn">13. Hasta</a>
+        <a href="#nak-chitra" class="nak-jump-btn">14. Chitra</a>
+        <a href="#nak-swati" class="nak-jump-btn">15. Swati</a>
+        <a href="#nak-vishakha" class="nak-jump-btn">16. Vishakha</a>
+        <a href="#nak-anuradha" class="nak-jump-btn">17. Anuradha</a>
+        <a href="#nak-jyeshtha" class="nak-jump-btn">18. Jyeshtha</a>
+        <a href="#nak-mula" class="nak-jump-btn">19. Mula</a>
+        <a href="#nak-purva-ashadha" class="nak-jump-btn">20. Purva Ashadha</a>
+        <a href="#nak-uttara-ashadha" class="nak-jump-btn">21. Uttara Ashadha</a>
+        <a href="#nak-shravana" class="nak-jump-btn">22. Shravana</a>
+        <a href="#nak-dhanishta" class="nak-jump-btn">23. Dhanishta</a>
+        <a href="#nak-shatabhisha" class="nak-jump-btn">24. Shatabhisha</a>
+        <a href="#nak-purva-bhadrapada" class="nak-jump-btn">25. Purva Bhadrapada</a>
+        <a href="#nak-uttara-bhadrapada" class="nak-jump-btn">26. Uttara Bhadrapada</a>
+        <a href="#nak-revati" class="nak-jump-btn">27. Revati</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <!--<p class="nak-updated" id="nak-updated"></p>-->
+    <div class="nak-list" id="nak-list">
+      <!-- STATIC FALLBACK CONTENT — see comment on #nak-jump-grid above. -->
+      <div class="nak-row" id="nak-ashwini">
+        <div class="nak-row-head">
+          <h3>1. Ashwini <span class="nak-ruler">Ketu</span></h3>
+        </div>
+        <div class="nak-dates">[Day 1–2 — update with real transit dates]</div>
+        <p>Favors fast starts — a new routine, a first attempt, a quick decision that pays off. Physical energy runs high, so use it before it turns restless.</p>
+      </div>
+      <div class="nak-row" id="nak-bharani">
+        <div class="nak-row-head">
+          <h3>2. Bharani <span class="nak-ruler">Venus</span></h3>
+        </div>
+        <div class="nak-dates">[Day 2–3 — update with real transit dates]</div>
+        <p>A period of creative intensity and letting go of something that's run its course. What feels like an ending is really clearing space for the next thing.</p>
+      </div>
+      <div class="nak-row" id="nak-krittika">
+        <div class="nak-row-head">
+          <h3>3. Krittika <span class="nak-ruler">Sun</span></h3>
+        </div>
+        <div class="nak-dates">[Day 3–4 — update with real transit dates]</div>
+        <p>Sharp clarity arrives — you'll see exactly what needs cutting away. Good window for honest conversations and decisive action, less so for patience.</p>
+      </div>
+      <div class="nak-row" id="nak-rohini">
+        <div class="nak-row-head">
+          <h3>4. Rohini <span class="nak-ruler">Moon</span></h3>
+        </div>
+        <div class="nak-dates">[Day 4–5 — update with real transit dates]</div>
+        <p>Growth-oriented and sensory — money, comfort, and relationships all get easier to build. A good stretch for anything that needs steady nurturing.</p>
+      </div>
+      <div class="nak-row" id="nak-mrigashira">
+        <div class="nak-row-head">
+          <h3>5. Mrigashira <span class="nak-ruler">Mars</span></h3>
+        </div>
+        <div class="nak-dates">[Day 5–6 — update with real transit dates]</div>
+        <p>Restless curiosity takes over; you'll want to search, explore, or start researching something new. Follow it, but avoid committing until the picture is clearer.</p>
+      </div>
+      <div class="nak-row" id="nak-ardra">
+        <div class="nak-row-head">
+          <h3>6. Ardra <span class="nak-ruler">Rahu</span></h3>
+        </div>
+        <div class="nak-dates">[Day 6–7 — update with real transit dates]</div>
+        <p>Expect a bit of upheaval — old structures loosen so something more honest can take their place. Uncomfortable in the moment, clarifying in hindsight.</p>
+      </div>
+      <div class="nak-row" id="nak-punarvasu">
+        <div class="nak-row-head">
+          <h3>7. Punarvasu <span class="nak-ruler">Jupiter</span></h3>
+        </div>
+        <div class="nak-dates">[Day 7–8 — update with real transit dates]</div>
+        <p>A return or renewal theme — reconnecting with a person, place, or plan you'd set aside. Optimism is well-supported this period.</p>
+      </div>
+      <div class="nak-row" id="nak-pushya">
+        <div class="nak-row-head">
+          <h3>8. Pushya <span class="nak-ruler">Saturn</span></h3>
+        </div>
+        <div class="nak-dates">[Day 8–9 — update with real transit dates]</div>
+        <p>One of the steadier windows — good for routines, commitments, and anything that needs consistency rather than excitement.</p>
+      </div>
+      <div class="nak-row" id="nak-ashlesha">
+        <div class="nak-row-head">
+          <h3>9. Ashlesha <span class="nak-ruler">Mercury</span></h3>
+        </div>
+        <div class="nak-dates">[Day 9–10 — update with real transit dates]</div>
+        <p>Intuition runs sharp; trust what you're sensing beneath the surface of a situation. Not the best window for taking things at face value.</p>
+      </div>
+      <div class="nak-row" id="nak-magha">
+        <div class="nak-row-head">
+          <h3>10. Magha <span class="nak-ruler">Ketu</span></h3>
+        </div>
+        <div class="nak-dates">[Day 10–11 — update with real transit dates]</div>
+        <p>Themes of legacy, authority, and ancestry surface. A good period for honoring where you come from while deciding what to carry forward.</p>
+      </div>
+      <div class="nak-row" id="nak-purva-phalguni">
+        <div class="nak-row-head">
+          <h3>11. Purva Phalguni <span class="nak-ruler">Venus</span></h3>
+        </div>
+        <div class="nak-dates">[Day 11–12 — update with real transit dates]</div>
+        <p>Leans toward rest, pleasure, and creative play. Give yourself permission to enjoy something without justifying it.</p>
+      </div>
+      <div class="nak-row" id="nak-uttara-phalguni">
+        <div class="nak-row-head">
+          <h3>12. Uttara Phalguni <span class="nak-ruler">Sun</span></h3>
+        </div>
+        <div class="nak-dates">[Day 12–13 — update with real transit dates]</div>
+        <p>Favors partnership and follow-through — agreements made now tend to hold. Good window for formalizing something you've been circling.</p>
+      </div>
+      <div class="nak-row" id="nak-hasta">
+        <div class="nak-row-head">
+          <h3>13. Hasta <span class="nak-ruler">Moon</span></h3>
+        </div>
+        <div class="nak-dates">[Day 13–14 — update with real transit dates]</div>
+        <p>Skilled, hands-on energy — a strong period for craft, precision work, or finishing something that needs a careful touch.</p>
+      </div>
+      <div class="nak-row" id="nak-chitra">
+        <div class="nak-row-head">
+          <h3>14. Chitra <span class="nak-ruler">Mars</span></h3>
+        </div>
+        <div class="nak-dates">[Day 14–15 — update with real transit dates]</div>
+        <p>Design and presentation matter more than usual. Good window for anything visual, structural, or image-related.</p>
+      </div>
+      <div class="nak-row" id="nak-swati">
+        <div class="nak-row-head">
+          <h3>15. Swati <span class="nak-ruler">Rahu</span></h3>
+        </div>
+        <div class="nak-dates">[Day 15–16 — update with real transit dates]</div>
+        <p>Independence and flexibility are favored — plans that require bending with circumstances go more smoothly than rigid ones.</p>
+      </div>
+      <div class="nak-row" id="nak-vishakha">
+        <div class="nak-row-head">
+          <h3>16. Vishakha <span class="nak-ruler">Jupiter</span></h3>
+        </div>
+        <div class="nak-dates">[Day 16–17 — update with real transit dates]</div>
+        <p>Determined, goal-driven energy. Good for pushing a long-term plan forward, less suited to starting something entirely new.</p>
+      </div>
+      <div class="nak-row" id="nak-anuradha">
+        <div class="nak-row-head">
+          <h3>17. Anuradha <span class="nak-ruler">Saturn</span></h3>
+        </div>
+        <div class="nak-dates">[Day 17–18 — update with real transit dates]</div>
+        <p>Friendship, loyalty, and devotion take center stage. A good period for deepening existing bonds rather than forming new ones.</p>
+      </div>
+      <div class="nak-row" id="nak-jyeshtha">
+        <div class="nak-row-head">
+          <h3>18. Jyeshtha <span class="nak-ruler">Mercury</span></h3>
+        </div>
+        <div class="nak-dates">[Day 18–19 — update with real transit dates]</div>
+        <p>Leadership and protection themes — you may find yourself stepping up for someone or something. Handle authority carefully this period.</p>
+      </div>
+      <div class="nak-row" id="nak-mula">
+        <div class="nak-row-head">
+          <h3>19. Mula <span class="nak-ruler">Ketu</span></h3>
+        </div>
+        <div class="nak-dates">[Day 19–20 — update with real transit dates]</div>
+        <p>An uprooting, get-to-the-bottom-of-it energy. Good for investigating and closing loops, not for starting anything fragile.</p>
+      </div>
+      <div class="nak-row" id="nak-purva-ashadha">
+        <div class="nak-row-head">
+          <h3>20. Purva Ashadha <span class="nak-ruler">Venus</span></h3>
+        </div>
+        <div class="nak-dates">[Day 20–21 — update with real transit dates]</div>
+        <p>Early-stage confidence and momentum — good for the opening move of something ambitious, even before all details are settled.</p>
+      </div>
+      <div class="nak-row" id="nak-uttara-ashadha">
+        <div class="nak-row-head">
+          <h3>21. Uttara Ashadha <span class="nak-ruler">Sun</span></h3>
+        </div>
+        <div class="nak-dates">[Day 21–22 — update with real transit dates]</div>
+        <p>Favors lasting achievement over quick wins. What you build carefully now tends to hold up well over time.</p>
+      </div>
+      <div class="nak-row" id="nak-shravana">
+        <div class="nak-row-head">
+          <h3>22. Shravana <span class="nak-ruler">Moon</span></h3>
+        </div>
+        <div class="nak-dates">[Day 22–23 — update with real transit dates]</div>
+        <p>A listening, learning period — conversations, study, and absorbing new information all go well. Less suited to broadcasting your own opinions.</p>
+      </div>
+      <div class="nak-row" id="nak-dhanishta">
+        <div class="nak-row-head">
+          <h3>23. Dhanishta <span class="nak-ruler">Mars</span></h3>
+        </div>
+        <div class="nak-dates">[Day 23–24 — update with real transit dates]</div>
+        <p>Rhythmic, prosperous energy tied to music, groups, and material gain. Good window for collaborative projects with momentum.</p>
+      </div>
+      <div class="nak-row" id="nak-shatabhisha">
+        <div class="nak-row-head">
+          <h3>24. Shatabhisha <span class="nak-ruler">Rahu</span></h3>
+        </div>
+        <div class="nak-dates">[Day 24–25 — update with real transit dates]</div>
+        <p>Healing and hidden-truth themes — good for research, therapy, or quietly working through something private.</p>
+      </div>
+      <div class="nak-row" id="nak-purva-bhadrapada">
+        <div class="nak-row-head">
+          <h3>25. Purva Bhadrapada <span class="nak-ruler">Jupiter</span></h3>
+        </div>
+        <div class="nak-dates">[Day 25–26 — update with real transit dates]</div>
+        <p>Intense, transformative energy. Big realizations are more likely now than small, comfortable ones.</p>
+      </div>
+      <div class="nak-row" id="nak-uttara-bhadrapada">
+        <div class="nak-row-head">
+          <h3>26. Uttara Bhadrapada <span class="nak-ruler">Saturn</span></h3>
+        </div>
+        <div class="nak-dates">[Day 26–27 — update with real transit dates]</div>
+        <p>A deep, slow-moving period well suited to reflection, rest, or spiritual practice rather than fast action.</p>
+      </div>
+      <div class="nak-row" id="nak-revati">
+        <div class="nak-row-head">
+          <h3>27. Revati <span class="nak-ruler">Mercury</span></h3>
+        </div>
+        <div class="nak-dates">[Day 27–28 — update with real transit dates]</div>
+        <p>A completion and transition theme — wrapping up one chapter gently before the next one properly begins.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap">
+    <h2>Want This Read for Your Own Chart?</h2>
+    <p>A monthly transit overview is general &mdash; a personal reading shows exactly how it plays out for you.</p>
+    <a href="book-reading.html" class="btn btn--primary">Book a Reading</a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">Jayavardhan</div>
+        <p>Vedic astrology readings and guidance rooted in traditional Jyotish practice.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Site</h4>
+        <ul>
+          <li><a href="index.html">Home / Services</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="horoscope.html">Monthly Horoscope</a></li>
+          <li><a href="donations.html">Donations</a></li>
+          <li><a href="book-reading.html">Book a Reading</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="#">YouTube</a></li>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">Twitter</a></li>
+          <li><a href="mailto:hello@example.com">hello@example.com</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="terms.html">Terms &amp; Conditions</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="consent.html">Informed Consent &amp; Liability Waiver</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; <span id="year"></span> Jayavardhan. All rights reserved.</span>
+      <span>Made with care, under the stars.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/nav.js"></script>
+<script src="js/horoscope.js"></script>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

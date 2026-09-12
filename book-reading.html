@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<!--
+  book-reading.html
+  ------------------------------------------------------------------
+  The booking form. Two things worth knowing before editing this file:
+
+  1. FORM SUBMISSION: the <form> below posts directly to Web3Forms
+     (https://web3forms.com), a free form-backend service — there is
+     no server of our own. Replace the "access_key" hidden input's
+     value with your real Web3Forms key before this goes live, or
+     submissions will fail. The inline <script> near the bottom
+     intercepts the normal form submit, sends it via fetch() instead
+     so the page doesn't reload, and swaps in the "form-success"
+     message on success.
+
+  2. SIDEBAR: the "Choose a Service" list on the right is hand-written
+     here (not pulled from data/posts.json or anywhere dynamic) — if
+     you change a price or service name in the Services section of
+     index.html, update it here too so the two stay in sync.
+  ------------------------------------------------------------------
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book a Reading — [Your Astrology Brand]</title>
+<meta name="description" content="Book a personalized Vedic astrology reading.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a href="index.html" class="brand">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.4"/>
+        <path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9 17 7M7 17l-2.1 2.1" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+      </svg>
+      Jayavardhan
+    </a>
+    <nav>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+      <ul class="nav-links">
+        <li><a href="index.html" aria-current="page">Services</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="horoscope.html">Monthly Horoscope</a></li>
+        <li><a href="donations.html">Donations</a></li>
+        <!--<li><a href="book-reading.html">Book a Reading</a></li>-->
+        <li class="nav-cta"><a href="book-reading.html" class="btn btn--primary" style="padding: 8px">Book Your Reading</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="page-header">
+  <div class="wrap">
+    <h1>Book a Reading</h1>
+    <p>Share a few details below and I'll follow up by email to confirm your session and collect your exact birth details.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="booking-layout">
+    <div class="form-wrap">
+
+      <div class="form-success" id="form-success" role="status">
+        Thank you — your request has been sent. I'll email you within 1–2 business days to confirm your booking.
+      </div>
+
+      <form id="booking-form" action="https://api.web3forms.com/submit" method="POST">
+        <!-- Replace YOUR_ACCESS_KEY_HERE with your real Web3Forms access key -->
+        <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+        <input type="hidden" name="subject" value="New Reading Request — [Your Astrology Brand]">
+        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+
+        <div class="form-row">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+
+        <div class="form-two">
+          <div class="form-row">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="form-row">
+            <label for="phone">Phone (optional)</label>
+            <input type="tel" id="phone" name="phone">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <label for="service">Which Reading Are You Interested In?</label>
+          <select id="service" name="service" required>
+            <option value="">Select a service</option>
+            <option value="Birth Chart Reading">Birth Chart Reading</option>
+            <option value="Compatibility Reading">Compatibility Reading</option>
+            <option value="Muhurta Consultation">Muhurta Consultation</option>
+            <option value="Annual Forecast">Annual Forecast</option>
+            <option value="Not sure yet">Not sure yet</option>
+          </select>
+        </div>
+
+        <div class="form-two">
+          <div class="form-row">
+            <label for="dob">Date of Birth</label>
+            <input type="date" id="dob" name="date_of_birth">
+          </div>
+          <div class="form-row">
+            <label for="tob">Time of Birth (if known)</label>
+            <input type="time" id="tob" name="time_of_birth">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <label for="pob">Place of Birth</label>
+          <input type="text" id="pob" name="place_of_birth" placeholder="City, Country">
+        </div>
+
+        <div class="form-row">
+          <label for="message">Anything You'd Like Me to Know</label>
+          <textarea id="message" name="message" rows="4" placeholder="Optional — share context on what's prompting this reading."></textarea>
+        </div>
+
+        <button type="submit" class="btn btn--primary btn--block">Send Booking Request</button>
+        <p class="form-note">This form is powered by Web3Forms — your details are sent directly to my inbox and are not stored on this site.</p>
+      </form>
+
+    </div>
+
+    <aside class="booking-sidebar">
+      <h3>Choose a Service</h3>
+      <ul class="booking-service-list">
+        <li>
+          <span class="booking-service-name">Birth Chart Reading</span>
+          <span class="booking-service-price">&#8377;3,500</span>
+        </li>
+        <li>
+          <span class="booking-service-name">Compatibility Reading</span>
+          <span class="booking-service-price">&#8377;4,500</span>
+        </li>
+        <li>
+          <span class="booking-service-name">Muhurta Consultation</span>
+          <span class="booking-service-price">&#8377;2,800</span>
+        </li>
+        <li>
+          <span class="booking-service-name">Annual Forecast</span>
+          <span class="booking-service-price">&#8377;5,000</span>
+        </li>
+      </ul>
+      <p class="booking-sidebar-note">See full descriptions of each service on the <a href="index.html#services">home page</a>.</p>
+    </aside>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">Jayavardhan</div>
+        <p>Vedic astrology readings and guidance rooted in traditional Jyotish practice.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Site</h4>
+        <ul>
+          <li><a href="index.html">Home / Services</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="horoscope.html">Monthly Horoscope</a></li>
+          <li><a href="donations.html">Donations</a></li>
+          <li><a href="book-reading.html">Book a Reading</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="#">YouTube</a></li>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">Twitter</a></li>
+          <li><a href="mailto:hello@example.com">hello@example.com</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="terms.html">Terms &amp; Conditions</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="consent.html">Informed Consent &amp; Liability Waiver</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; <span id="year"></span> Jayavardhan. All rights reserved.</span>
+      <span>Made with care, under the stars.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/nav.js"></script>
+<script>
+// Footer copyright year — trivial, but keeps it from going stale.
+document.getElementById('year').textContent = new Date().getFullYear();
+
+// Intercept the form's normal submit (which would reload the page)
+// and send it to Web3Forms via fetch() instead, so we can show the
+// "form-success" message inline without navigating away.
+document.getElementById('booking-form').addEventListener('submit', function (e) {
+  e.preventDefault(); // stop the browser's default full-page submit
+  var form = e.target;
+  var data = new FormData(form); // collects every named input's value automatically
+  var successBox = document.getElementById('form-success');
+
+  fetch(form.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } })
+    .then(function (res) { return res.json(); })
+    .then(function (json) {
+      if (json.success) {
+        // Web3Forms confirms it received the submission — hide the form,
+        // show the thank-you message in its place.
+        form.style.display = 'none';
+        successBox.style.display = 'block';
+      } else {
+        // Request reached Web3Forms but it reported a failure (e.g. bad
+        // access key) — surface something rather than failing silently.
+        alert('Something went wrong — please try again or email directly.');
+      }
+    })
+    .catch(function () {
+      // Network error, or Web3Forms unreachable entirely.
+      alert('Something went wrong — please try again or email directly.');
+    });
+});
+</script>
+</body>
+</html>

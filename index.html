@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<!--
+  index.html — Home / Services
+  ------------------------------------------------------------------
+  The main landing page. Sections top to bottom: Hero → Features →
+  a full-bleed photo break → Services (pricing) → Benefits →
+  Testimonials → latest Blog posts → final Book-a-Reading CTA.
+
+  The "Latest Blog Posts" grid (#home-blog-preview) is filled in
+  dynamically by js/blog.js from data/posts.json — the 3 cards
+  hard-coded in this file are just a fallback shown before that
+  script runs (or if it can't run at all, e.g. JS disabled). See
+  the comment right above that grid further down for details.
+  ------------------------------------------------------------------
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jayavardhan Vedic Astrology</title>
+<meta name="description" content="Authentic Vedic astrology readings for career, relationships, and life decisions.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a href="index.html" class="brand">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.4"/>
+        <path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9 17 7M7 17l-2.1 2.1" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+      </svg>
+      Jayavardhan
+    </a>
+    <nav>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+      <ul class="nav-links">
+        <li><a href="index.html" aria-current="page">Services</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="horoscope.html">Monthly Horoscope</a></li>
+        <li><a href="donations.html">Donations</a></li>
+        <!--<li><a href="book-reading.html">Book a Reading</a></li>-->
+        <li class="nav-cta"><a href="book-reading.html" class="btn btn--primary" style="padding: 8px">Book Your Reading</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <!-- Big Dipper, centered across the top of the hero -->
+  <svg class="hero-bg-lines" viewBox="0 0 1160 560" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <g stroke="#C9821F" stroke-width="1.6" stroke-linecap="round" opacity="0.6">
+      <polyline points="430,60 500,42 555,68 610,95 700,88 695,135 620,142 610,95" fill="none"/>
+    </g>
+    <g fill="#E8A33D" opacity="0.9">
+      <circle cx="430" cy="60" r="4"/>
+      <circle cx="500" cy="42" r="4"/>
+      <circle cx="555" cy="68" r="4"/>
+      <circle cx="610" cy="95" r="4.4"/>
+      <circle cx="700" cy="88" r="4"/>
+      <circle cx="695" cy="135" r="4"/>
+      <circle cx="620" cy="142" r="4"/>
+    </g>
+    <g fill="#1F2A44" opacity="0.18">
+      <circle cx="120" cy="90" r="1.6"/>
+      <circle cx="60" cy="230" r="1.4"/>
+      <circle cx="150" cy="400" r="1.8"/>
+      <circle cx="1080" cy="420" r="1.6"/>
+      <circle cx="1030" cy="480" r="1.4"/>
+    </g>
+  </svg>
+
+  <div class="wrap">
+    <div class="hero-copy">
+      <div class="hero-eyebrow">Vedic Astrology &amp; Jyotish</div>
+      <h1>Discover What the Stars Have Written for You</h1>
+      <p class="hero-sub">Vedic astrology readings to guide your career, relationships & life decisions - grounded in 500 year old tradition of seers of Jagannath Puri, India.</p>
+      <div class="hero-actions">
+        <a href="book-reading.html" class="btn btn--primary">Book a Reading</a>
+        <a href="#services" class="btn btn--ghost">Explore Services</a>
+      </div>
+    </div>
+    <div class="hero-art">
+      <img src="images/garuda-hero.png" alt="Stone carving of Garuda in prayer, wings outspread" class="hero-art-img">
+    </div>
+  </div>
+</section>
+
+<!-- ============ FEATURES ============ -->
+<!-- "What sets this practice apart" — 4 short differentiators, shown
+     right after the hero so a first-time visitor gets a quick trust
+     signal before hitting the pricing in the Services section below. -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>What Sets This Practice Apart</h2>
+      <p>A few things clients notice before they even book their first reading.</p>
+    </div>
+    <div class="icon-grid">
+      <div class="icon-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="4"/>
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+        </svg>        
+        <h3>500-year Old Tradition</h3>
+        <p>Traditional Vedic techniques passed down through study and lineage, not automated generic sun-sign horoscopes.</p>
+      </div>
+      <div class="icon-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="9"/>
+        <path d="M8 15s1.5 2 4 2 4-2 4-2"/>
+        <line x1="9" y1="9" x2="9.01" y2="9"/>
+        <line x1="15" y1="9" x2="15.01" y2="9"/>
+      </svg>
+        <h3>Pay for Satisfaction</h3>
+        <p>A client-first policy designed so you invest with complete confidence and peace of mind in every single consultation.</p>
+      </div>
+      <div class="icon-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+          <!-- Lightning Bolt -->
+          <path d="M14 3h6.5l-4 7h4L11.5 21l3-8.5h-3L14 3z" />
+          
+          <!-- Speed / Motion Lines -->
+          <path d="M7 7.5h4.5" />
+          <path d="M3 11h6.5" />
+          <path d="M5.5 14.5h3" />
+        </svg>
+        <h3>Priority Appointments</h3>
+        <p>Direct, flexible scheduling created to respect your time and provide prompt clarity when critical life decisions arise.</p>
+      </div>
+      <div class="icon-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+          <!-- Radiating Rays -->
+          <path d="M12 2v1.5" />
+          <path d="M7 4l1 1" />
+          <path d="M17 4l-1 1" />
+          <path d="M4.5 8.5H6" />
+          <path d="M19.5 8.5H18" />
+
+          <!-- Light Bulb & Checkmark -->
+          <path d="M9 12a4.5 4.5 0 1 1 6 0c-.8.8-1 1.5-1 2.5h-4c0-1-.2-1.7-1-2.5z" />
+          <path d="M10 16.5h4" />
+          <path d="M10.5 18h3" />
+          <path d="M10 8.5l1.5 1.5 2.5-2.5" />
+
+          <!-- Hand Base -->
+          <path d="M2 15v6h3v-6H2z" />
+          <path d="M5 16.5h3.5c1 0 1.8.8 1.8 1.8v.2c0 .5-.4.8-.9.8H8.5" />
+          <path d="M5 19.5h6.5l8-3.5c.8-.4 1.2-1.3.8-2.1-.3-.7-1.1-1-1.8-.7L14 15.5" />
+        </svg>
+        <h3>Practical Solutions</h3>
+        <p>Clear, actionable guidance and remedies - lifestyle shifts, mantras, Vedic rituals - crafted around what works best for you.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VISUAL BREAK ============ -->
+<section class="stone-break">
+  <img src="images/konark-wheel.jpg" alt="Carved stone wheel from the Konark Sun Temple" loading="lazy">
+  <div class="stone-break-caption wrap">
+    <p>Rooted in a tradition carved in stone — the Konark Sun Temple's wheel, a working sundial and enduring symbol of time itself.</p>
+  </div>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section class="section section--tint" id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Reading &amp; Consultation Services</h2>
+      <p>Choose the reading that fits where you are right now - live, one-on-one session or audio recording of your consultation.</p>
+    </div>
+    <div class="service-grid">
+
+      <div class="service-card" style="border-top: 2px solid var(--marigold)">
+        <h3>Initial Chart Reading</h3>
+        <div class="service-price">Donation based - 30 mins</div>
+        <p>Complete analysis with birth time rectification examining your core disposition and one area of life - career, love, health or other life themes.</p>
+        <a href="book-reading.html" class="service-link">Book this reading</a>
+      </div>
+
+      <div class="service-card" style="border-top: 2px solid var(--green)">
+        <h3>Follow-up Reading</h3>
+        <div class="service-price">Donation based - 60 mins</div>
+        <p>A dedicated deep-dive for existing clients to review transits, yearly charts, dasas to address specific emerging life situations.</p>
+        <a href="book-reading.html" class="service-link">Book this reading</a>
+      </div>
+
+      <div class="service-card" style="border-top: 2px solid var(--red)">
+        <h3>Muhurta Consultation</h3>
+        <div class="service-price">USD 108 / &#8377; 8,000</div>
+        <p>Auspicious timing calculations tailored for pivotal actions - including wedding dates, business launches, property purchases, or major travel.</p>
+        <a href="book-reading.html" class="service-link">Book this reading</a>
+      </div>
+
+      <div class="service-card" style="border-top: 2px solid var(--blue)">
+        <h3>10-min Audio</h3>
+        <div class="service-price">USD 350 / &#8377; 30,000</div>
+        <p>A recorded audio breakdown focused directly on a single area of life or urgent decision requiring informed insight.</p>
+        <a href="book-reading.html" class="service-link">Book this reading</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ BENEFITS ============ -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>What You Walk Away With</h2>
+    </div>
+    <div class="icon-grid">
+      <div class="icon-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6l1.4 1.4M17 17l1.4 1.4M18.4 5.6 17 7M7 17l-1.4 1.4"/><circle cx="12" cy="12" r="4"/></svg>
+        <h3>Clarity in Uncertain Times</h3>
+        <p>Understand what's ahead so you can plan the next chapter with confidence, not guesswork.</p>
+      </div>
+      <div class="icon-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+        <h3>Better Decision Timing</h3>
+        <p>Know when to act and when to wait, informed by planetary cycles rather than instinct alone.</p>
+      </div>
+      <div class="icon-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 3c-4 3-6 6-6 10a6 6 0 0012 0c0-4-2-7-6-10z"/></svg>
+        <h3>Deeper Self-Understanding</h3>
+        <p>See your strengths, tendencies, and recurring patterns laid out clearly through your chart.</p>
+      </div>
+      <div class="icon-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 21s-7-4.6-9.5-9C1 8.2 3 5 6.3 5c2 0 3.3 1.2 3.7 2 .4-.8 1.7-2 3.7-2C17 5 19 8.2 17.5 12c-2.5 4.4-9.5 9-9.5 9z"/></svg>
+        <h3>Peace of Mind</h3>
+        <p>Move forward in relationships, career, and life decisions with clarity instead of doubt.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section class="section section--tint">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>What Clients Say</h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <p class="testi-quote">"My reading was shockingly accurate — it explained patterns in my career I'd never fully understood before."</p>
+        <div class="testi-name">Priya S.</div>
+        <div class="testi-role">Birth Chart Reading</div>
+      </div>
+      <div class="testi-card">
+        <p class="testi-quote">"[Name] helped us choose our wedding date, and everything about that day felt right from start to finish."</p>
+        <div class="testi-name">Rahul &amp; Anjali</div>
+        <div class="testi-role">Muhurta Consultation</div>
+      </div>
+      <div class="testi-card">
+        <p class="testi-quote">"I was skeptical going in, but the depth of insight into my relationships genuinely surprised me."</p>
+        <div class="testi-name">Meera K.</div>
+        <div class="testi-role">Compatibility Reading</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LATEST BLOG POSTS ============ -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>From the Blog</h2>
+      <p>Notes on Jyotish concepts, timing, and how to read your own chart.</p>
+    </div>
+    <div class="blog-grid" id="home-blog-preview">
+      <!-- Static fallback shown if JS is disabled; replaced by js/blog.js on load -->
+      <a class="blog-card" href="blog/post.html?slug=rising-sign">
+        <div class="blog-card-img"><img src="images/blog-rising-sign.jpg" alt="" loading="lazy"></div>
+        <div class="blog-card-body">
+          <div class="blog-card-tag">Basics</div>
+          <h3>Understanding Your Rising Sign in Vedic Astrology</h3>
+          <p>Why your Ascendant shapes more of your chart's story than your Moon sign does.</p>
+          <div class="blog-card-date">August 1, 2026</div>
+        </div>
+      </a>
+      <a class="blog-card" href="blog/post.html?slug=saturn-return">
+        <div class="blog-card-img"><img src="images/blog-saturn-return.jpg" alt="" loading="lazy"></div>
+        <div class="blog-card-body">
+          <div class="blog-card-tag">Transits</div>
+          <h3>Saturn Return: What It Means and How to Navigate It</h3>
+          <p>The astrological rite of passage nearly everyone goes through in their late twenties.</p>
+          <div class="blog-card-date">August 10, 2026</div>
+        </div>
+      </a>
+      <a class="blog-card" href="blog/post.html?slug=muhurta-guide">
+        <div class="blog-card-img"><img src="images/blog-muhurta.jpg" alt="" loading="lazy"></div>
+        <div class="blog-card-body">
+          <div class="blog-card-tag">Timing</div>
+          <h3>How to Choose an Auspicious Date for Big Life Events</h3>
+          <p>A plain-language walkthrough of how Muhurta selection actually works.</p>
+          <div class="blog-card-date">August 20, 2026</div>
+        </div>
+      </a>
+    </div>
+    <div class="section-foot-link">
+      <a href="blog.html" class="btn btn--ghost">Read More on the Blog</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA ============ -->
+<section class="cta-band cta-band--photo">
+  <img src="images/dharmachakra-moon.jpg" alt="" class="cta-band-bg" aria-hidden="true">
+  <div class="wrap">
+    <h2>Ready to See What Your Chart Reveals?</h2>
+    <p>Book a personalized reading and get clarity on the questions that matter most to you right now.</p>
+    <a href="book-reading.html" class="btn btn--primary">Book Your Reading Now</a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">Jayavardhan</div>
+        <p>Vedic astrology readings and guidance rooted in traditional Jyotish practice.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Site</h4>
+        <ul>
+          <li><a href="index.html">Home / Services</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="horoscope.html">Monthly Horoscope</a></li>
+          <li><a href="donations.html">Donations</a></li>
+          <li><a href="book-reading.html">Book a Reading</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="#">YouTube</a></li>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">Twitter</a></li>
+          <li><a href="mailto:hello@example.com">hello@example.com</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="terms.html">Terms &amp; Conditions</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="consent.html">Informed Consent &amp; Liability Waiver</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; <span id="year"></span> Jayavardhan. All rights reserved.</span>
+      <span>Made with care, under the stars.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<script>
+  // Required for the Decap CMS login flow (Netlify Identity + Git Gateway).
+  // Catches the invite/confirmation link and redirects into /admin/.
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on('init', function (user) {
+      if (!user) {
+        window.netlifyIdentity.on('login', function () {
+          document.location.href = '/admin/';
+        });
+      }
+    });
+  }
+</script>
+<script src="js/nav.js"></script>
+<script src="js/blog.js"></script>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

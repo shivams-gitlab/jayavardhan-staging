@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<!--
+  blog/post.html
+  ------------------------------------------------------------------
+  THIS IS A TEMPLATE, NOT ONE POST — it renders whichever blog post
+  matches the ?slug=... in its own URL. There is no separate HTML
+  file per post; every post lives as one entry in data/posts.json
+  (editable directly, or via /admin — see the README).
+
+  Example: blog.html links here as
+    blog/post.html?slug=rising-sign
+  and the inline <script> at the bottom reads "rising-sign" out of
+  the URL, looks it up in data/posts.json, and fills in the title,
+  date, image, and body on this page. If you're trying to edit the
+  content of a specific post, don't edit this file — edit
+  data/posts.json (or use /admin) instead.
+  ------------------------------------------------------------------
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="page-title">Blog Post — [Your Astrology Brand]</title>
+<meta name="description" id="page-description" content="">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<style>
+  .post-header { padding: 56px 0 20px; }
+  .post-header .blog-card-tag { margin-bottom: 14px; }
+
+  /* Two-column layout: body text on the left, cover image pinned on
+     the right. Falls back to a single column (image above body) on
+     narrower screens — see the max-width: 860px block below. */
+  .post-layout {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 56px;
+    align-items: start;
+  }
+  .post-body-col { max-width: 680px; }
+  .post-body-col p { font-size: 1.05rem; color: var(--ink); }
+
+  .post-image-col {
+    position: sticky;
+    top: 100px; /* clears the sticky site header */
+  }
+  .post-image-col img {
+    width: 100%;
+    aspect-ratio: 4/5;
+    object-fit: cover;
+    background: var(--sand);
+  }
+
+  @media (max-width: 860px) {
+    .post-layout { grid-template-columns: 1fr; gap: 0; }
+    .post-image-col {
+      position: static;
+      order: -1; /* image above the body text on mobile, same as before */
+      margin-bottom: 32px;
+    }
+    .post-image-col img { aspect-ratio: 16/9; }
+  }
+
+  .post-not-found { display: none; }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a href="index.html" class="brand">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.4"/>
+        <path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9 17 7M7 17l-2.1 2.1" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+      </svg>
+      Jayavardhan
+    </a>
+    <nav>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+      <ul class="nav-links">
+        <li><a href="index.html" aria-current="page">Services</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="horoscope.html">Monthly Horoscope</a></li>
+        <li><a href="donations.html">Donations</a></li>
+        <!--<li><a href="book-reading.html">Book a Reading</a></li>-->
+        <li class="nav-cta"><a href="book-reading.html" class="btn btn--primary" style="padding: 8px">Book Your Reading</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="section post-header">
+  <div class="wrap">
+    <div class="blog-card-tag" id="post-tag"></div>
+    <h1 id="post-title">Loading&hellip;</h1>
+    <p style="color:var(--ink-soft)" id="post-date"></p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <div class="post-layout">
+      <div class="post-body-col">
+        <div class="post-body" id="post-body"></div>
+      </div>
+      <div class="post-image-col" id="post-hero-img" style="display:none">
+        <img id="post-image" src="" alt="">
+      </div>
+    </div>
+    <div class="post-not-found" id="post-not-found">
+      <p>We couldn't find that post — it may have been renamed or removed.</p>
+      <p><a href="../blog.html" class="btn btn--ghost">Back to the Blog</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap">
+    <h2>Want This Read for Your Own Chart?</h2>
+    <p>Book a personalized reading and see exactly how this plays out in your life.</p>
+    <a href="../book-reading.html" class="btn btn--primary">Book a Reading</a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">Jayavardhan</div>
+        <p>Vedic astrology readings and guidance rooted in traditional Jyotish practice.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Site</h4>
+        <ul>
+          <li><a href="index.html">Home / Services</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="horoscope.html">Monthly Horoscope</a></li>
+          <li><a href="donations.html">Donations</a></li>
+          <li><a href="book-reading.html">Book a Reading</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="#">YouTube</a></li>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">Twitter</a></li>
+          <li><a href="mailto:hello@example.com">hello@example.com</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="terms.html">Terms &amp; Conditions</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="consent.html">Informed Consent &amp; Liability Waiver</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; <span id="year"></span> Jayavardhan. All rights reserved.</span>
+      <span>Made with care, under the stars.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- marked.js converts each post's Markdown "body" field (written in
+     the CMS's rich-text editor) into HTML for display — loaded from
+     a CDN since this site has no build step / package manager. -->
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script src="../js/nav.js"></script>
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
+(function () {
+  // Read the slug straight out of the URL, e.g. ?slug=rising-sign → "rising-sign"
+  var params = new URLSearchParams(window.location.search);
+  var slug = params.get('slug');
+
+  // Note the "../" — this file lives in /blog/, but data/posts.json
+  // lives at the site root, one level up.
+  fetch('../data/posts.json')
+    .then(function (res) { return res.json(); })
+    .then(function (data) {
+      var posts = data.posts || [];
+      var post = posts.find(function (p) { return p.slug === slug; });
+
+      // No matching slug (typo'd URL, deleted post, etc.) — show the
+      // "not found" block instead of a broken/blank page.
+      if (!post) {
+        document.getElementById('post-title').textContent = 'Post Not Found';
+        document.getElementById('post-not-found').style.display = 'block';
+        return;
+      }
+
+      // Fill in the page's <title>/<meta description> for SEO/browser
+      // tabs, then the visible header (tag, title, date).
+      document.title = post.title + ' — [Your Astrology Brand]';
+      document.getElementById('page-title').textContent = post.title + ' — [Your Astrology Brand]';
+      document.getElementById('page-description').setAttribute('content', post.excerpt || '');
+      document.getElementById('post-tag').textContent = post.tag || '';
+      document.getElementById('post-title').textContent = post.title;
+      document.getElementById('post-date').textContent = 'Published ' + (post.date_display || '');
+
+      // Cover image is optional — only show the image block if one was set.
+      if (post.image) {
+        document.getElementById('post-image').src = post.image;
+        document.getElementById('post-hero-img').style.display = '';
+      }
+
+      // Render the Markdown body to HTML. Falls back to the raw text
+      // (unformatted, but not broken) if marked.js failed to load —
+      // e.g. the CDN was blocked by the browser or a network filter.
+      var bodyHtml = (typeof marked !== 'undefined') ? marked.parse(post.body || '') : (post.body || '');
+      document.getElementById('post-body').innerHTML = bodyHtml;
+    })
+    .catch(function (err) {
+      // fetch() itself failed — most likely this page was opened as a
+      // local file:// path rather than served over http(s). See the
+      // README's "previewing locally" note.
+      console.error('Could not load post:', err);
+      document.getElementById('post-title').textContent = 'Post Not Found';
+      document.getElementById('post-not-found').style.display = 'block';
+    });
+})();
+</script>
+</body>
+</html>
