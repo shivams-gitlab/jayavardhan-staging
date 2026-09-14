@@ -51,7 +51,7 @@ collections:
               - label: "Tag"
                 name: "tag"
                 widget: "select"
-                options: ["Basics", "Transits", "Timing", "Remedies", "Relationships", "Career"]
+                options: ["Basics", "Transits", "Timing", "Remedies", "Relationships", "Career", "Muhurta", "Gemstones", "Research"]
               - { label: "Excerpt", name: "excerpt", widget: "text", hint: "One or two sentences shown on the blog index and homepage" }
               - { label: "Publish Date", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false, hint: "Used for sorting — newest shows first" }
               - { label: "Display Date", name: "date_display", widget: "string", hint: "How the date appears on the page, e.g. August 20, 2026" }
