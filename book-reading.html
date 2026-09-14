@@ -119,19 +119,19 @@
         <!-- 3. Date of Birth -->
         <div class="form-group">
             <label for="dob">Date of Birth <span class="required">*</span></label>
-            <input type="date" id="dob" name="date_of_birth" required>
+            <input type="date" id="dob" name="birth_date" required>
         </div>
 
         <!-- 4. Place of Birth -->
         <div class="form-group">
             <label for="pob">Place of Birth (Town, City, State, Country) <span class="required">*</span></label>
-            <input type="text" id="pob" name="place_of_birth" required placeholder="Your answer">
+            <input type="text" id="pob" name="birth_place" required placeholder="Your answer">
         </div>
 
         <!-- 5. Time of Birth -->
         <div class="form-group">
             <label for="tob">Time of Birth <span class="required">*</span></label>
-            <input type="text" id="tob" name="time_of_birth" required placeholder="e.g. 14:30 or 2:30 PM">
+            <input type="text" id="tob" name="birth_time" required placeholder="e.g. 14:30 or 2:30 PM">
         </div>
 
         <!-- 6. Birth Time Accuracy -->
@@ -253,6 +253,11 @@
             <p>If in response I suggest you submit the request some other time, please consider asking some other time then, preferably after 40-days. Thank you for understanding.</p>
         </div>-->
 
+        <!-- hCaptcha Widget Integration -->
+        <div class="form-group">
+            <div class="h-captcha" data-captcha="true"></div>
+        </div>
+
         <button type="submit" class="btn btn--primary btn--block">Submit Request</button>
         <p class="form-note">This form is powered by Web3Forms — your details are sent directly to my inbox and are not stored on this site.</p>
       </form>
@@ -364,5 +369,22 @@ document.getElementById('booking-form').addEventListener('submit', function (e) 
     });
 });
 </script>
+
+<!-- Step 2: Add the Web3Forms script -->
+<script src="https://web3forms.com/client/script.js" async defer></script>
+
+<!-- Client Side Validation Script to check if hCaptcha is completed -->
+<script>
+  const form = document.getElementById('booking-form');
+  form.addEventListener('submit', function(e) {
+    const hCaptcha = form.querySelector('textarea[name=h-captcha-response]').value;
+    if (!hCaptcha) {
+      e.preventDefault();
+      alert("Please complete the hCaptcha field before submitting.");
+      return;
+    }
+  });
+</script>
+
 </body>
 </html>
