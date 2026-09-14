@@ -253,11 +253,6 @@
             <p>If in response I suggest you submit the request some other time, please consider asking some other time then, preferably after 40-days. Thank you for understanding.</p>
         </div>-->
 
-        <!-- hCaptcha Widget Integration -->
-        <div class="form-group">
-            <div class="h-captcha" data-captcha="true"></div>
-        </div>
-
         <button type="submit" class="btn btn--primary btn--block">Submit Request</button>
         <p class="form-note">This form is powered by Web3Forms — your details are sent directly to my inbox and are not stored on this site.</p>
       </form>
@@ -368,22 +363,6 @@ document.getElementById('booking-form').addEventListener('submit', function (e) 
       alert('Something went wrong — please try again or email directly.');
     });
 });
-</script>
-
-<!-- Step 2: Add the Web3Forms script -->
-<script src="https://web3forms.com/client/script.js" async defer></script>
-
-<!-- Client Side Validation Script to check if hCaptcha is completed -->
-<script>
-  const form = document.getElementById('booking-form');
-  form.addEventListener('submit', function(e) {
-    const hCaptcha = form.querySelector('textarea[name=h-captcha-response]').value;
-    if (!hCaptcha) {
-      e.preventDefault();
-      alert("Please complete the hCaptcha field before submitting.");
-      return;
-    }
-  });
 </script>
 
 </body>
