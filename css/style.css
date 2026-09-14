@@ -854,6 +854,89 @@ p { margin: 0 0 1em; color: var(--ink-soft); }
   font-size: .95rem;
 }
 
+/*deployed*/
+
+.consultation-form {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid var(--line);
+    font-family: var(--font-body);
+    font-size: .95rem;
+    border-radius: 3px;
+    background: var(--white);
+    color: var(--ink);
+
+}
+.form-group {
+    margin-bottom: 24px;
+}
+.form-group > label {
+    display: block;
+    font-size: .88rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--indigo-deep);
+}
+.required {
+    color: #d93025;
+}
+input[type="text"],
+input[type="email"],
+input[type="date"],
+textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #dadce0;
+    border-radius: 4px;
+    font-size: 14px;
+    box-sizing: border-box;
+    transition: border-color 0.2s;
+}
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="date"]:focus,
+textarea:focus {
+    border-color: var(--indigo-deep);
+    outline: none;
+}
+.radio-option, .checkbox-option {
+    margin: 8px 0;
+}
+.radio-option label, .checkbox-option label {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    cursor: pointer;
+    /*font-weight: normal;
+    line-height: 1.4;*/
+}
+.notice-card {
+    background-color: #f8f9fa;
+    border-left: 4px solid var(--indigo-deep);
+    padding: 14px;
+    border-radius: 4px;
+    margin-bottom: 24px;
+    font-size: 13.5px;
+    color: #3c4043;
+}
+.notice-card p {
+    margin: 6px 0 0;
+}
+.submit-btn {
+    color: #fff;
+    border: none;
+    padding: 12px 24px;
+    font-size: 15px;
+    font-weight: 500;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.submit-btn:hover {
+    background-color: #1557b0;
+}
+
+
 /* ========================================================
    Accessibility
    ======================================================== */

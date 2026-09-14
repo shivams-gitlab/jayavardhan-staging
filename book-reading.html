@@ -58,7 +58,7 @@
 <section class="page-header">
   <div class="wrap">
     <h1>Book a Reading</h1>
-    <p>Share a few details below and I'll follow up by email to confirm your session and collect your exact birth details.</p>
+    <p>Share a few details below and I'll follow up by email to confirm your session and your birth details.</p>
   </div>
 </section>
 
@@ -71,65 +71,184 @@
         Thank you — your request has been sent. I'll email you within 1–2 business days to confirm your booking.
       </div>
 
-      <form id="booking-form" action="https://api.web3forms.com/submit" method="POST">
-        <!-- Replace YOUR_ACCESS_KEY_HERE with your real Web3Forms access key -->
-        <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
-        <input type="hidden" name="subject" value="New Reading Request — [Your Astrology Brand]">
-        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+      
+      <form id="booking-form" action="https://api.w3forms.com/submit" method="POST" class="consultation-form">
 
-        <div class="form-row">
-          <label for="name">Full Name</label>
-          <input type="text" id="name" name="name" required>
-        </div>
+        <!-- W3Forms Access Key (Replace with your actual key) -->
+        <input type="hidden" name="access_key" value="c0c8529a-dc2a-4bc5-839c-a7d6c8aaa2f2">
 
-        <div class="form-two">
-          <div class="form-row">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required>
-          </div>
-          <div class="form-row">
-            <label for="phone">Phone (optional)</label>
-            <input type="tel" id="phone" name="phone">
-          </div>
-        </div>
+        <!-- Optional: Subject line for submission notification emails -->
+        <input type="hidden" name="subject" value="New Vedic Astrology Consultation Request">
+
+        <!-- Optional: Bot spam protection honeypot -->
+        <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
 
         <div class="form-row">
           <label for="service">Which Reading Are You Interested In?</label>
           <select id="service" name="service" required>
             <option value="">Select a service</option>
-            <option value="Birth Chart Reading">Birth Chart Reading</option>
-            <option value="Compatibility Reading">Compatibility Reading</option>
+            <option value="Birth Chart Reading">Initial Chart Reading</option>
+            <option value="Compatibility Reading">Follow-up Reading</option>
             <option value="Muhurta Consultation">Muhurta Consultation</option>
-            <option value="Annual Forecast">Annual Forecast</option>
-            <option value="Not sure yet">Not sure yet</option>
+            <option value="10-min Audio">10-min Audio</option>
           </select>
         </div>
-
-        <div class="form-two">
-          <div class="form-row">
-            <label for="dob">Date of Birth</label>
-            <input type="date" id="dob" name="date_of_birth">
-          </div>
-          <div class="form-row">
-            <label for="tob">Time of Birth (if known)</label>
-            <input type="time" id="tob" name="time_of_birth">
-          </div>
+            
+        <!-- 1. First and Last Name -->
+        <div class="form-group">
+            <label for="full_name">First and Last Name <span class="required">*</span></label>
+            <input type="text" id="full_name" name="full_name" required placeholder="Your answer">
         </div>
 
-        <div class="form-row">
-          <label for="pob">Place of Birth</label>
-          <input type="text" id="pob" name="place_of_birth" placeholder="City, Country">
+        <!-- 2. Your Email -->
+        <div class="form-group">
+            <label for="email">Your Email <span class="required">*</span></label>
+            <input type="email" id="email" name="email" required placeholder="Your answer">
         </div>
 
-        <div class="form-row">
-          <label for="message">Anything You'd Like Me to Know</label>
-          <textarea id="message" name="message" rows="4" placeholder="Optional — share context on what's prompting this reading."></textarea>
+        <!-- 3. Date of Birth -->
+        <div class="form-group">
+            <label for="dob">Date of Birth <span class="required">*</span></label>
+            <input type="date" id="dob" name="date_of_birth" required>
         </div>
 
-        <button type="submit" class="btn btn--primary btn--block">Send Booking Request</button>
+        <!-- 4. Place of Birth -->
+        <div class="form-group">
+            <label for="pob">Place of Birth (Town, City, State, Country) <span class="required">*</span></label>
+            <input type="text" id="pob" name="place_of_birth" required placeholder="Your answer">
+        </div>
+
+        <!-- 5. Time of Birth -->
+        <div class="form-group">
+            <label for="tob">Time of Birth <span class="required">*</span></label>
+            <input type="text" id="tob" name="time_of_birth" required placeholder="e.g. 14:30 or 2:30 PM">
+        </div>
+
+        <!-- 6. Birth Time Accuracy -->
+        <div class="form-group">
+            <label>How certain are you of the birth time provided? Do you think it is accurate? <span class="required">*</span></label>
+            <div class="radio-option">
+                <label><input type="radio" name="birth_time_accuracy" value="Yes, birth time is accurate" required> Yes, birth time is accurate</label>
+            </div>
+            <div class="radio-option">
+                <label><input type="radio" name="birth_time_accuracy" value="No, I'm not sure of accuracy of birth time"> No, I'm not sure of accuracy of birth time</label>
+            </div>
+        </div>
+
+        <!-- 7. Source of Birth data 
+        <div class="form-group">
+            <label>Source of Birth data</label>
+            <div class="radio-option">
+                <label><input type="radio" name="source_of_birth_data" value="Birth Certificate"> Birth Certificate</label>
+            </div>
+            <div class="radio-option">
+                <label><input type="radio" name="source_of_birth_data" value="Mother/Family"> Mother/Family</label>
+            </div>
+            <div class="radio-option">
+                <label><input type="radio" name="source_of_birth_data" value="Recalling from memory"> Recalling from memory</label>
+            </div>
+        </div>-->
+
+        <!-- 8. Consultation For Whom 
+        <div class="form-group">
+            <label>For whom are you taking this reading? <span class="required">*</span></label>
+            <div class="radio-option">
+                <label><input type="radio" name="reading_for_whom" value="Myself" required> Myself</label>
+            </div>
+            <div class="radio-option">
+                <label><input type="radio" name="reading_for_whom" value="Children - Son/Daughter"> Children - Son/Daughter</label>
+            </div>
+            <div class="radio-option">
+                <label><input type="radio" name="reading_for_whom" value="Spouse/Partner - Wife/Husband"> Spouse/Partner - Wife/Husband</label>
+            </div>
+            <div class="radio-option">
+                <label><input type="radio" name="reading_for_whom" value="Parents"> Parents</label>
+            </div>
+            <div class="radio-option">
+                <label><input type="radio" name="reading_for_whom" value="Others"> Others</label>
+            </div>
+        </div>-->
+
+        <!-- 9. Focus Area -->
+        <div class="form-group">
+            <label>What is the reading about? <span class="required">*</span></label>
+            <div class="radio-option">
+                <label><input type="radio" name="reading_focus_area" value="Career/Wealth/Finances" required> Career/Wealth/Finances</label>
+            </div>
+            <div class="radio-option">
+                <label><input type="radio" name="reading_focus_area" value="Health"> Health</label>
+            </div>
+            <div class="radio-option">
+                <label><input type="radio" name="reading_focus_area" value="Children/Child Birth/Conception"> Children/Child Birth/Conception</label>
+            </div>
+            <div class="radio-option">
+                <label><input type="radio" name="reading_focus_area" value="Relationship-Marriage/Spouse/Partner"> Relationship-Marriage/Spouse/Partner</label>
+            </div>
+            <div class="radio-option">
+                <label><input type="radio" name="reading_focus_area" value="Property"> Property/House</label>
+            </div>
+            <div class="radio-option">
+                <label><input type="radio" name="reading_focus_area" value="Other areas"> Other (please explain in notes below)</label>
+            </div>
+        </div>
+
+        <!-- 10. Consultation Objective 
+        <div class="form-group">
+            <label for="objective">What is the objective of your consultation? What are you expecting and looking forward to? <span class="required">*</span></label>
+            <textarea id="objective" name="consultation_objective" rows="4" required placeholder="Your answer"></textarea>
+        </div>-->
+
+        <!-- 11. Previous Remedies -->
+        <div class="form-group">
+            <label for="previous_remedies">Please list remedies you have done or are presently doing, including gemstones and mantras?</label>
+            <textarea id="previous_remedies" name="previous_remedies" rows="4" placeholder="Your answer"></textarea>
+        </div>
+
+        <!-- 12. Other Notes -->
+        <div class="form-group">
+            <label for="notes">Any other notes for consideration</label>
+            <textarea id="notes" name="additional_notes" rows="4" required placeholder="Your answer"></textarea>
+        </div>
+
+        <!-- 13. Openness to Remedies -->
+        <div class="form-group">
+            <label>Are you open to doing remedies? If so, what kind suits your situation? <span class="required">*</span><br>
+                <small style="color: #666; font-weight: normal;">(Note: certain complex cases/karma cannot be resolved without religious remedies; in such cases lifestyle remedies make only the experience of situation better, not resolve the root cause of the problem.)</small>
+            </label>
+            <div class="checkbox-option">
+                <label><input type="checkbox" name="open_to_remedies[]" value="NO, I do not want any remedies."> NO, I do not want any remedies.</label>
+            </div>
+            <div class="checkbox-option">
+                <label><input type="checkbox" name="open_to_remedies[]" value="YES, but only LIFESTYLE remedies like what to donate, eat, wear, gemstones etc"> YES, but only LIFESTYLE remedies like what to donate, eat, wear, gemstones etc</label>
+            </div>
+            <div class="checkbox-option">
+                <label><input type="checkbox" name="open_to_remedies[]" value="YES, I'm open to both RELIGIOUS (mantra, puja) and LIFESTYLE remedies"> YES, I'm open to both RELIGIOUS (mantra, puja) and LIFESTYLE remedies</label>
+            </div>
+        </div>
+
+        <!-- 14. Consent and Waiver -->
+        <div class="form-group">
+            <label>Informed Consent and Liability Waiver<span class="required">*</span></label>
+            <div class="checkbox-option">
+                <label>
+                    <input type="checkbox" name="terms_waiver_consent" value="Accepted" required> 
+                    I've read and fully understand the terms and conditions detailed in this Informed Consent and Liability Waiver document.
+                </label>
+            </div>
+        </div>
+
+        <!-- Notice Box 
+        <div class="notice-card">
+            <strong>Please Note:</strong>
+            <p>If in response I suggest you submit the request some other time, please consider asking some other time then, preferably after 40-days. Thank you for understanding.</p>
+        </div>-->
+
+        <button type="submit" class="btn btn--primary btn--block">Submit Request</button>
         <p class="form-note">This form is powered by Web3Forms — your details are sent directly to my inbox and are not stored on this site.</p>
       </form>
 
+
+      
     </div>
 
     <aside class="booking-sidebar">
@@ -145,7 +264,7 @@
         </li>
         <li>
           <span class="booking-service-name">Muhurta</span>
-          <span class="booking-service-price">USD 108 / &#8377; 8,000</span>
+          <span class="booking-service-price">USD 150 / &#8377; 12,000</span>
         </li>
         <li>
           <span class="booking-service-name">10-min Audio</span>
