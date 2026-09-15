@@ -189,6 +189,70 @@ p { margin: 0 0 1em; color: var(--ink-soft); }
 .nav-links a:hover,
 .nav-links a[aria-current="page"] { border-bottom-color: var(--marigold); }
 
+/* ------------------------------------------------------------
+   Blog dropdown ("nav-dropdown")
+   ------------------------------------------------------------
+   Pure CSS, no JavaScript: the submenu is positioned absolutely
+   under its parent <li>, hidden by default, and revealed either
+   on mouse hover (:hover) or keyboard focus (:focus-within, so
+   tabbing to a link inside it also opens it — important since
+   dropdowns with only :hover are unusable by keyboard).
+   On narrow/mobile screens (see the @media block further down)
+   hover doesn't really work for touch, so it switches to an
+   always-visible nested list instead of a hover flyout.
+   ------------------------------------------------------------ */
+.nav-dropdown {
+  position: relative;
+}
+.nav-caret {
+  font-size: .7em;
+  margin-left: 2px;
+  display: inline-block;
+}
+.nav-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 10px;
+  min-width: 240px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  box-shadow: 0 12px 28px rgba(20, 28, 48, .12);
+  border-radius: 4px;
+  padding: 8px 0;
+  list-style: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(-50%) translateY(4px);
+  transition: opacity .15s ease, transform .15s ease, visibility .15s;
+  z-index: 60;
+}
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown:focus-within .nav-dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+.nav-dropdown-menu li { padding: 0; }
+.nav-dropdown-menu a {
+  display: block;
+  padding: 9px 18px;
+  font-size: .88rem;
+  border-bottom: none; /* override the underline-on-hover style from .nav-links a */
+  white-space: nowrap;
+}
+.nav-dropdown-menu a:hover {
+  background: var(--sand);
+  color: var(--marigold-deep);
+}
+.nav-dropdown-divider {
+  border-top: 1px solid var(--line);
+  margin-top: 6px;
+  padding-top: 6px;
+}
+.nav-dropdown-divider a { font-weight: 600; }
+
 .nav-cta { margin-left: 8px; }
 
 .nav-toggle {
@@ -217,6 +281,29 @@ p { margin: 0 0 1em; color: var(--ink-soft); }
   }
   .nav-links.is-open { display: flex; }
   .nav-cta { margin-left: 0; }
+
+  /* On mobile the menu is a tap-to-open stacked panel (not hover-driven),
+     so a hover flyout doesn't make sense here. Instead, show the Blog
+     dropdown's items as an always-visible indented sub-list, right under
+     the "Blog" link, styled a bit smaller/muted to read as secondary. */
+  .nav-dropdown-menu {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    box-shadow: none;
+    border: none;
+    background: transparent;
+    padding: 4px 0 0 16px;
+    margin-top: 6px;
+    min-width: 0;
+  }
+  .nav-dropdown-menu a {
+    padding: 6px 0;
+    color: var(--ink-soft);
+    white-space: normal;
+  }
+  .nav-dropdown-divider { border-top: none; margin-top: 0; padding-top: 0; }
 }
 
 /* ========================================================
@@ -323,7 +410,7 @@ p { margin: 0 0 1em; color: var(--ink-soft); }
   color: var(--white);
   font-family: var(--font-display);
   font-style: italic;
-  font-size: 1.05rem;
+  font-size: 1.5rem;
   max-width: 46ch;
   margin: 0;
 }

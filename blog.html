@@ -13,7 +13,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Blog — [Your Astrology Brand]</title>
+<title>Blog - Jayavardhan Vedic Astrology</title>
 <meta name="description" content="Notes on Jyotish concepts, transits, and timing.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,9 +34,22 @@
     <nav>
       <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
       <ul class="nav-links">
-        <li><a href="index.html" aria-current="page">Services</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="horoscope.html">Monthly Horoscope</a></li>
+        <li><a href="index.html">Services</a></li>
+        <!-- Blog dropdown: "nav-dropdown" is the hover/focus zone, the
+             nested <ul class="nav-dropdown-menu"> is hidden by default
+             and shown via CSS on hover or keyboard focus (see style.css).
+             Entries below are hand-picked/hardcoded — update this list
+             by hand whenever you want to feature a different post. -->
+        <li class="nav-dropdown">
+          <a href="blog.html" aria-current="page">Blog <span class="nav-caret" aria-hidden="true">&#9662;</span></a>
+          <ul class="nav-dropdown-menu">
+            <li><a href="blog/post.html?slug=rising-sign">Sri Rama</a></li>
+            <li><a href="blog/post.html?slug=saturn-return">Alzheimer's Research</a></li>
+            <li><a href="blog/post.html?slug=muhurta-guide">Prostate Cancer</a></li>
+            <li class="nav-dropdown-divider"><a href="blog.html">View All Posts &rarr;</a></li>
+          </ul>
+        </li>
+        <!--<li><a href="horoscope.html">Monthly Horoscope</a></li>-->
         <li><a href="donations.html">Donations</a></li>
         <!--<li><a href="book-reading.html">Book a Reading</a></li>-->
         <li class="nav-cta"><a href="book-reading.html" class="btn btn--primary" style="padding: 8px">Book Your Reading</a></li>
