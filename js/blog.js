@@ -39,15 +39,10 @@
   // preview and the full blog grid — same markup, same CSS classes.
   function cardHTML(post) {
     var url = postUrl(post);
-    // Ensure relative paths point to the root directory
-    var imgPath = post.image;
-    if (imgPath && !imgPath.startsWith('/') && !imgPath.startsWith('http')) {
-      imgPath = '/' + imgPath;
-    }
     return (
       '<a class="blog-card" href="' + url + '" data-title="' + post.title.toLowerCase() +
       '" data-tag="' + post.tag.toLowerCase() + '" data-excerpt="' + post.excerpt.toLowerCase() + '">' +
-        '<div class="blog-card-img"><img src="' + imgPath + '" alt="" loading="lazy"></div>' +
+        '<div class="blog-card-img"><img src="' + post.image + '" alt="" loading="lazy"></div>' +
         '<div class="blog-card-body">' +
           '<div class="blog-card-tag">' + post.tag + '</div>' +
           '<h3>' + post.title + '</h3>' +

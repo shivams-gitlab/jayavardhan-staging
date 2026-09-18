@@ -3,7 +3,7 @@
     {
       "title": "Understanding Your Rising Sign in Vedic Astrology",
       "slug": "rising-sign",
-      "image": "images/blog-rising-sign.jpg",
+      "image": "/images/sri-rama-chart.png",
       "tag": "Basics",
       "excerpt": "Why your Ascendant shapes more of your chart's story than your Moon sign does.",
       "date": "2026-08-01",
@@ -13,7 +13,7 @@
     {
       "title": "Saturn Return: What It Means and How to Navigate It",
       "slug": "saturn-return",
-      "image": "../images/sri-rama-chart.png",
+      "image": "images/sri-rama-chart.png",
       "tag": "Transits",
       "excerpt": "The astrological rite of passage nearly everyone goes through in their late twenties.",
       "date": "2026-08-10",
@@ -38,7 +38,7 @@
       "excerpt": "Mula Dasa is used for timing curses, hardships and other evils. It shows the exact period when a curse or blessing from past life shall come into play.",
       "date": "2026-09-18",
       "date_display": "September 18, 2026",
-      "image": "../images/ram-lala-3.png"
+      "image": "/images/ram-lala-3.png"
     }
   ]
 }
