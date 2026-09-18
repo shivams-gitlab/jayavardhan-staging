@@ -3,7 +3,7 @@
     {
       "title": "Understanding Your Rising Sign in Vedic Astrology",
       "slug": "rising-sign",
-      "image": "/images/sri-rama-chart.png",
+      "image": "images/sri-rama-chart.png",
       "tag": "Basics",
       "excerpt": "Why your Ascendant shapes more of your chart's story than your Moon sign does.",
       "date": "2026-08-01",
@@ -23,7 +23,7 @@
     {
       "title": "How to Choose an Auspicious Date for Big Life Events",
       "slug": "muhurta-guide",
-      "image": "../images/sri-rama-chart.png",
+      "image": "images/sri-rama-chart.png",
       "tag": "Timing",
       "excerpt": "A plain-language walkthrough of how Muhurta selection actually works.",
       "date": "2026-08-20",
@@ -38,7 +38,7 @@
       "excerpt": "Mula Dasa is used for timing curses, hardships and other evils. It shows the exact period when a curse or blessing from past life shall come into play.",
       "date": "2026-09-18",
       "date_display": "September 18, 2026",
-      "image": "/images/ram-lala-3.png"
+      "image": "images/ram-lala-3.png"
     }
   ]
 }
