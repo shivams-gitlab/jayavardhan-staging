@@ -124,3 +124,8 @@ Open data/posts.json, find the posts array, and add a new object in the same sha
    }
 
 Validate the JSON before saving — a single missing comma or unescaped quote will break the entire blog, not just this post. Paste it into a free JSON validator (e.g. jsonlint.com) if you're not sure.  
+
+**Adding an image inside the body of a post**
+The body field is Markdown, and Markdown's image syntax works directly inside it:
+![Alt text describing the image](images/your-image.jpg)
+======================================
