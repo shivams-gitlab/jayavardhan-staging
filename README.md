@@ -87,7 +87,7 @@ By hand instead: add a new entry to the `posts` array in `data/posts.json` (titl
 
 
 ##How to add more data tags for blog, do not code anything
-
+config.yml
 
 1. Tagging a post (already no-code)
 Each blog post has a tag field — that's what shows as the little colored label on its card ("Basics," "Transits," "Timing"). You can set this to anything you want:
@@ -101,3 +101,26 @@ Nothing stops you from typing a brand-new tag name here today — it'll show up 
 Those "All / Basics / Transits / Timing" pill buttons near the search box are currently hard-coded directly into blog.html — they don't automatically know about new tags you add to posts. So right now, if you tag a post "Career," it'll show correctly on that post's card, but there won't be a "Career" filter button unless one is added to the HTML.
 
 So practically: you can already tag posts with anything, no code needed. But to get a matching filter button for a brand-new tag, that currently needs one small HTML edit.
+
+==============================================================
+
+Word → manual edit of data/posts.json
+Only do this if you're not using the CMS for some reason — it's fiddly because JSON has strict formatting rules.
+
+In Word, write the post using plain paragraphs (blank line between paragraphs), and if you want bold/italic/headings, manually add Markdown syntax around them (**bold**, *italic*, ## Subheading) since Word's own formatting won't survive a copy into plain text.
+Copy the text into a plain text editor first (Notepad, TextEdit in plain-text mode, or VS Code) — this strips Word's hidden formatting/smart quotes, which otherwise cause invisible errors in JSON.
+Replace any curly/smart quotes (" " ' ') with straight quotes, or better, leave them — but if you do use straight double quotes " inside your text, they must be escaped as \" in JSON, or the file will break.
+Join every paragraph with \n\n (literally the two characters backslash-n, twice) — that's how the body field represents paragraph breaks; the site's Markdown renderer turns that into separate <p> tags.
+Open data/posts.json, find the posts array, and add a new object in the same shape as the existing ones:
+   {
+     "title": "Your Title",
+     "slug": "your-title-slug",
+     "tag": "Basics",
+     "excerpt": "One-sentence summary.",
+     "date": "2026-09-15",
+     "date_display": "September 15, 2026",
+     "image": "images/your-image.jpg",
+     "body": "First paragraph.\n\nSecond paragraph with **bold** text.\n\nThird paragraph."
+   }
+
+Validate the JSON before saving — a single missing comma or unescaped quote will break the entire blog, not just this post. Paste it into a free JSON validator (e.g. jsonlint.com) if you're not sure.  
