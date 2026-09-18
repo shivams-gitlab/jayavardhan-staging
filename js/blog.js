@@ -39,10 +39,16 @@
   // preview and the full blog grid — same markup, same CSS classes.
   function cardHTML(post) {
     var url = postUrl(post);
+    // Strip leading '../' or '/' to normalize the image path to "images/filename.ext"
+    var cleanImage = post.image ? post.image.replace(/^(\.\.\/|\/)/, '') : '';
+
+    // If blog.js runs on a page inside /blog/, step out using '../', otherwise use path directly
+    var isInBlogDir = window.location.pathname.indexOf('/blog/') !== -1;
+    var imageSrc = (isInBlogDir ? '../' : '') + cleanImage;
     return (
       '<a class="blog-card" href="' + url + '" data-title="' + post.title.toLowerCase() +
       '" data-tag="' + post.tag.toLowerCase() + '" data-excerpt="' + post.excerpt.toLowerCase() + '">' +
-        '<div class="blog-card-img"><img src="' + post.image + '" alt="" loading="lazy"></div>' +
+        '<div class="blog-card-img"><img src="' + imageSrc + '" alt="" loading="lazy"></div>' +
         '<div class="blog-card-body">' +
           '<div class="blog-card-tag">' + post.tag + '</div>' +
           '<h3>' + post.title + '</h3>' +
