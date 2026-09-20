@@ -119,13 +119,17 @@ Open data/posts.json, find the posts array, and add a new object in the same sha
      "excerpt": "One-sentence summary.",
      "date": "2026-09-15",
      "date_display": "September 15, 2026",
-     "image": "images/your-image.jpg",
+     "image": "../images/your-image.jpg",
      "body": "First paragraph.\n\nSecond paragraph with **bold** text.\n\nThird paragraph."
    }
+
+"image": "../images/your-image.jpg",
+blog.js strips slashes / or ../ to display same image as blog card in blog.html
 
 Validate the JSON before saving — a single missing comma or unescaped quote will break the entire blog, not just this post. Paste it into a free JSON validator (e.g. jsonlint.com) if you're not sure.  
 
 **Adding an image inside the body of a post**
 The body field is Markdown, and Markdown's image syntax works directly inside it:
 ![Alt text describing the image](images/your-image.jpg)
-======================================
+====================================================
+
