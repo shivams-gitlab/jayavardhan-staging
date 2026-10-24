@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<!--
+  tutoring.html - Tutoring & Courses
+  ------------------------------------------------------------------
+  STANDALONE PAGE: no other page links here (not the nav, footer or
+  header). Share the URL directly, e.g. in an Instagram bio or a
+  YouTube description. It is NOT marked noindex, so Google may still
+  find and list it.
+
+  Sections top to bottom: How it works -> Tutoring sessions ->
+  Course 1 (Introduction to Vedic Astrology) -> Course 2 (Transits)
+  -> Refund policy -> closing "email me" band.
+
+  ENROLLMENT FLOW (no form): the student pays with the PayPal button,
+  then emails hello@jayavardhan.org with their questions and PayPal
+  payment confirmation. Every "Email" button opens a pre-filled draft.
+
+  PAYPAL: every "Pay with PayPal" button (4 tutoring + 2 courses) has
+  a placeholder link, https://paypal.me/YOUR_PAYPAL_HANDLE/<amount>USD.
+  Find/replace YOUR_PAYPAL_HANDLE with your PayPal.me name. If your
+  PayPal link is a different kind, replace each button's href instead.
+  Look for the "PAYPAL:" comments.
+
+  STYLES: everything comes from css/style.css, including a "Tutoring
+  page" block near the end of that file (note box, course layout,
+  schedule list, enroll card). Upload style.css and this page together.
+  ------------------------------------------------------------------
+-->
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) - same analytics tag as the rest of the site -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-V2GH8W3CLH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-V2GH8W3CLH');
+</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tutoring &amp; Courses - Jayavardhan Vedic Astrology</title>
+<meta name="description" content="Learn Vedic astrology: one-on-one tutoring sessions (15 to 120 minutes) and courses in Introduction to Vedic Astrology and Transits (Gocara).">
+<link rel="icon" type="image/png" href="images/my-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- Same header as the rest of the site. No nav item is highlighted
+     (aria-current) because this page is not part of the navigation. -->
+<header class="site-header">
+  <div class="wrap">
+    <a href="index.html" class="brand">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.4"/>
+        <path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9 17 7M7 17l-2.1 2.1" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+      </svg>
+      Jayavardhan
+    </a>
+    <nav>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+      <ul class="nav-links">
+        <li><a href="index.html">Services</a></li>
+        <li><a href="about.html">About Me</a></li>
+        <li class="nav-dropdown">
+          <a href="blog.html">Blog <span class="nav-caret" aria-hidden="true">🢗</span></a>
+          <ul class="nav-dropdown-menu">
+            <li><a href="blog/post.html?slug=sri-rama">Sri Rama</a></li>
+            <li><a href="blog/post.html?slug=achyutananda-dasa">Achyutānanda Dasa</a></li>
+            <li><a href="blog/post.html?slug=alzheimers-research">Alzheimer's Research</a></li>
+            <li><a href="blog/post.html?slug=prostate-research">Prostate Cancer</a></li>
+            <li class="nav-dropdown-divider"><a href="blog.html">View All Posts &rarr;</a></li>
+          </ul>
+        </li>
+        <li><a href="donations.html">Donations</a></li>
+        <li class="nav-cta"><a href="book-reading.html" class="btn btn--primary" style="padding: 8px">Book Your Reading</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="page-header">
+  <div class="wrap">
+    <h1>Tutoring &amp; Courses</h1>
+    <p>Learn Jyotiṣa at your own pace, or bring your questions to a one-on-one session.</p>
+  </div>
+</section>
+
+<!-- ============ HOW IT WORKS ============ -->
+<!-- Same icon-grid component as the Features section on the home page. -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>How It Works</h2>
+      <p>Four steps from choosing an option to your first session.</p>
+    </div>
+    <div class="icon-grid">
+      <div class="icon-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h9M4 12h9M4 18h5"/><path d="M15.5 16.5l2.5 2.5 4.5-5"/></svg>
+        <h3>1. Choose</h3>
+        <p>Pick a tutoring session or one of the two courses below.</p>
+      </div>
+      <div class="icon-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18M7 15h3"/></svg>
+        <h3>2. Pay with PayPal</h3>
+        <p>Use the PayPal button on the option you have chosen.</p>
+      </div>
+      <div class="icon-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+        <h3>3. Email me</h3>
+        <p>Send your questions and your PayPal payment confirmation to <a href="mailto:hello@jayavardhan.org">hello@jayavardhan.org</a>.</p>
+      </div>
+      <div class="icon-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.7 2.7L16 9.5"/></svg>
+        <h3>4. Get confirmed</h3>
+        <p>I'll reply to confirm your enrollment and share the scheduling details.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TUTORING SESSIONS ============ -->
+<!-- Same card grid as the Services section on the home page. -->
+<section class="section section--tint" id="tutoring">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Tutoring Sessions</h2>
+      <p>Learn a concept, work through something you are stuck on, or ask your Jyotiṣa questions in a one-on-one session.</p>
+    </div>
+    <p class="note-box tutoring-note"><strong>After you pay,</strong> email <a href="mailto:hello@jayavardhan.org?subject=Tutoring%20session&amp;body=Hello%2C%0D%0A%0D%0AI%20have%20paid%20for%20a%20___-minute%20tutoring%20session.%0D%0A%0D%0APayPal%20payment%20confirmation%20%2F%20transaction%20ID%3A%0D%0AMy%20time%20zone%3A%0D%0A%0D%0AMy%20questions%3A%0D%0A">hello@jayavardhan.org</a> with your questions and your PayPal payment confirmation. I'll reply to confirm and schedule your session.</p>
+    <div class="service-grid tutor-grid">
+      <div class="service-card" style="border-top: 2px solid var(--marigold)">
+        <h3>15-Minute Session</h3>
+        <div class="service-price">USD 20</div>
+        <p>A quick, focused answer to one Jyotiṣa question.</p>
+        <!-- PAYPAL: replace this link with your PayPal payment link for the 15-minute session (USD 20) -->
+        <a href="https://www.paypal.com/ncp/payment/WRVEP4FU7BKGU" class="btn btn--primary pay-btn" target="_blank" rel="noopener noreferrer" aria-label="Pay USD 20 with PayPal for a 15-minute tutoring session">Pay with PayPal</a>
+      </div>
+
+      <div class="service-card" style="border-top: 2px solid var(--green)">
+        <h3>30-Minute Session</h3>
+        <div class="service-price">USD 30</div>
+        <p>Room for a question or concept, plus follow-ups.</p>
+        <!-- PAYPAL: replace this link with your PayPal payment link for the 30-minute session (USD 30) -->
+        <a href="https://www.paypal.com/ncp/payment/WRVEP4FU7BKGU" class="btn btn--primary pay-btn" target="_blank" rel="noopener noreferrer" aria-label="Pay USD 30 with PayPal for a 30-minute tutoring session">Pay with PayPal</a>
+      </div>
+
+      <div class="service-card" style="border-top: 2px solid var(--red)">
+        <h3>60-Minute Session</h3>
+        <div class="service-price">USD 60</div>
+        <p>An in-depth session to work through a topic step by step.</p>
+        <!-- PAYPAL: replace this link with your PayPal payment link for the 60-minute session (USD 60) -->
+        <a href="https://www.paypal.com/ncp/payment/WRVEP4FU7BKGU" class="btn btn--primary pay-btn" target="_blank" rel="noopener noreferrer" aria-label="Pay USD 60 with PayPal for a 60-minute tutoring session">Pay with PayPal</a>
+      </div>
+
+      <div class="service-card" style="border-top: 2px solid var(--blue)">
+        <h3>120-Minute Session</h3>
+        <div class="service-price">USD 120</div>
+        <p>An extended deep dive for study, or a stack of questions.</p>
+        <!-- PAYPAL: replace this link with your PayPal payment link for the 120-minute session (USD 120) -->
+        <a href="https://www.paypal.com/ncp/payment/WRVEP4FU7BKGU" class="btn btn--primary pay-btn" target="_blank" rel="noopener noreferrer" aria-label="Pay USD 120 with PayPal for a 120-minute tutoring session">Pay with PayPal</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COURSE: INTRODUCTION TO VEDIC ASTROLOGY ============ -->
+<section class="section" id="intro-course">
+  <div class="wrap">
+    <div class="course-layout">
+
+      <div class="course-main">
+        <div class="course-kicker"><b>8-week course &middot; 1&ndash;2 hours per weekend &middot; Donation based</b></div>
+        <h2>Introduction to Vedic Astrology</h2>
+        <p>This is an introductory course for beginners. I take you through the basic building blocks of Jyotiṣa at your pace and your level of understanding.</p>
+        <p>The objective of this series is to address your apprehensions and sharpen your basic skills, so that you can go on to take other courses and embed Jyotiṣa knowledge in your daily life, such as understanding the skills of your kids and more.</p>
+        <p class="note-box"><strong>Prerequisite:</strong> None. This course is for beginners.</p>
+
+        <h3>Schedule</h3>
+        <ol class="week-list">
+          <li><span class="wk">Week 1 - </span><span>Introduction, Bhava (Houses), Rasi (Signs), Q&amp;A</span></li>
+          <li><span class="wk">Week 2 - </span><span>Graha, the planets: Surya, Chandra, Mangala, Budh, Guru, Sukra, Sani, Rahu-Ketu</span></li>
+          <li><span class="wk">Week 3 - </span><span>Dristi (Aspects); Graha dignity and friendships; Q&amp;A</span></li>
+          <li><span class="wk">Week 4 - </span><span>Integration: Graha in Bhava results, part 1</span></li>
+          <li><span class="wk">Week 5 - </span><span>Integration: Graha in Bhava results, part 2</span></li>
+          <li><span class="wk">Week 6 - </span><span>Integration: Graha-Bhava-Rasi results, part 1</span></li>
+          <li><span class="wk">Week 7 - </span><span>Integration: Graha-Bhava-Rasi results, part 2</span></li>
+          <li><span class="wk">Week 8 - </span><span>Q&amp;A; introduction to Arudha, Navamsa and Vargas</span></li>
+        </ol>
+      </div>
+
+      <!-- Enroll card: stays in view beside the schedule on wide screens. -->
+      <aside class="enroll-card">
+        <!--<div class="enroll-price">USD 400</div>
+        <div class="enroll-meta">8 weeks &middot; 1&ndash;2 hours per weekend</div>
+        PAYPAL: replace this link with your PayPal payment link for "Introduction to Vedic Astrology" (USD 400) 
+        <a href="https://paypal.me/YOUR_PAYPAL_HANDLE/400USD" class="btn btn--primary pay-btn" target="_blank" rel="noopener noreferrer" aria-label="Pay USD 400 with PayPal to enroll in Introduction to Vedic Astrology">Pay with PayPal</a>
+        <p class="enroll-steps"><strong>Then email me</strong> your questions and your PayPal payment confirmation. I'll reply to confirm your enrollment.</p>
+        <p class="enroll-fine">All sales are final. See the <a href="#refund-policy">Refund Policy</a>.</p>-->
+        <a href="mailto:hello@jayavardhan.org?subject=Enrollment%3A%20Introduction%20to%20Vedic%20Astrology&amp;body=Hello%2C%0D%0A%0D%0AI%20have%20paid%20for%20the%20course%3A%20Introduction%20to%20Vedic%20Astrology%20%28USD%20400%29.%0D%0A%0D%0APayPal%20payment%20confirmation%20%2F%20transaction%20ID%3A%0D%0AName%20used%20on%20PayPal%3A%0D%0AMy%20time%20zone%3A%0D%0A%0D%0AMy%20questions%3A%0D%0A" class="btn btn--ghost btn--small">Email hello@jayavardhan.org</a>
+        
+      </aside>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ COURSE: TRANSITS (GOCARA) ============ -->
+<section class="section section--tint" id="transits-course">
+  <div class="wrap">
+    <div class="course-layout">
+
+      <div class="course-main">
+        <div class="course-kicker"><b>7-week course &middot; 1&ndash;2 hours per weekend &middot; Donation based</b></div>
+        <h2>Transits (Gocara)</h2>
+        <p>Graha are continuously moving through the zodiac, and as they change signs, our experiences change with them. The Moon (Chandra) takes about 2.5 days to cross one sign, while mighty Saturn (Sani) takes about 2.5 years. In this course we learn to interpret the results of the transits of all graha.</p>
+        <p>The course is based on <em>Muhurta Chintamani</em>, <em>Deva Keralam</em>, <em>Phaldeepika</em>, <em>Brihat Jataka</em>, <em>Prasna Marga</em> and other texts.</p>
+        <p class="note-box"><strong>Prerequisite:</strong> a basic understanding of the chart, including dasha.</p>
+
+        <h3>Schedule</h3>
+        <ol class="week-list">
+          <li><span class="wk">Week 1 - </span><span>Introduction and transits of the Moon</span></li>
+          <li><span class="wk">Week 2 - </span><span>Transits of Mars, Mercury and Venus</span></li>
+          <li><span class="wk">Week 3 - </span><span>Transits of Jupiter</span></li>
+          <li><span class="wk">Week 4 - </span><span>Transits of the Sun; Sankranti</span></li>
+          <li><span class="wk">Week 5 - </span><span>Transits of Rahu-Ketu</span></li>
+          <li><span class="wk">Week 6 - </span><span>Transits of Saturn, Sade-Sati, Kantaka Sani</span></li>
+          <li><span class="wk">Week 7 - </span><span>Other key techniques</span></li>
+        </ol>
+      </div>
+
+      <!-- Enroll card: stays in view beside the schedule on wide screens. -->
+      <aside class="enroll-card">
+        <!--<div class="enroll-price">USD 200</div>
+        <div class="enroll-meta">7 weeks &middot; 1&ndash;2 hours per weekend</div>
+        PAYPAL: replace this link with your PayPal payment link for "Transits (Gocara)" (USD 200) 
+        <a href="https://paypal.me/YOUR_PAYPAL_HANDLE/200USD" class="btn btn--primary pay-btn" target="_blank" rel="noopener noreferrer" aria-label="Pay USD 200 with PayPal to enroll in Transits (Gocara)">Pay with PayPal</a>
+        <p class="enroll-steps"><strong>Then email me</strong> your questions and your PayPal payment confirmation. I'll reply to confirm your enrollment.</p>
+        <p class="enroll-fine">All sales are final. See the <a href="#refund-policy">Refund Policy</a>.</p>-->
+        <a href="mailto:hello@jayavardhan.org?subject=Enrollment%3A%20Transits%20%28Gocara%29&amp;body=Hello%2C%0D%0A%0D%0AI%20have%20paid%20for%20the%20course%3A%20Transits%20%28Gocara%29%20%28USD%20200%29.%0D%0A%0D%0APayPal%20payment%20confirmation%20%2F%20transaction%20ID%3A%0D%0AName%20used%20on%20PayPal%3A%0D%0AMy%20time%20zone%3A%0D%0A%0D%0AMy%20questions%3A%0D%0A" class="btn btn--ghost btn--small">Email hello@jayavardhan.org</a>
+        
+      </aside>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ REFUND POLICY ============ -->
+<section class="section" id="refund-policy">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Refund Policy</h2>
+    </div>
+    <div class="policy-body">
+      <p><strong>All sales are final.</strong> Tutoring sessions and courses are non-refundable, so please be sure of your choice before you pay.</p>
+      <p>If you have any questions beforehand, email <a href="mailto:hello@jayavardhan.org">hello@jayavardhan.org</a> and I'll be glad to help you choose.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CLOSING CTA ============ -->
+<section class="cta-band cta-band--photo">
+  <img src="images/dharmachakra-moon.jpg" alt="" class="cta-band-bg" aria-hidden="true">
+  <div class="wrap">
+    <h2>Not Sure Which Option Fits?</h2>
+    <p>Write to me before you pay, and I'll help you choose.</p>
+    <a href="mailto:hello@jayavardhan.org?subject=Question%20about%20tutoring%20and%20courses" class="btn btn--primary">Email Me</a>
+  </div>
+</section>
+
+<!-- Same footer as the rest of the site. -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">Jayavardhan</div>
+        <p>Vedic astrology readings and guidance rooted in traditional Jyotish practice.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Site</h4>
+        <ul>
+          <li><a href="index.html">Home / Services</a></li>
+          <li><a href="about.html">About Me</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="donations.html">Donations</a></li>
+          <li><a href="book-reading.html">Book a Reading</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul>
+          <!--<li><a href="#"  target="_blank" rel="noopener noreferrer">YouTube</a></li>
+          <li><a href="https://www.instagram.com/jayavardhan_astrology/"  target="_blank" rel="noopener noreferrer"">Instagram</a></li>
+          <li><a href="https://x.com/_Jayavardhan" target="_blank" rel="noopener noreferrer">Twitter</a></li>-->
+          <li><a href="https://www.linkedin.com/company/jayavardhan-astrology" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          <li><a href="mailto:hello@jayavardhan.org">hello@jayavardhan.org</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="terms.html">Terms &amp; Conditions</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="consent.html">Informed Consent &amp; Liability Waiver</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; <span id="year"></span> Jayavardhan. All rights reserved.</span>
+      <span>Made with care, under the stars.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/nav.js"></script>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

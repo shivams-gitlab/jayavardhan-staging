@@ -1,0 +1,221 @@
+{
+  "month_label": "[Month Year]",
+  "nakshatras": [
+    {
+      "order": 1,
+      "name": "Ashwini",
+      "slug": "ashwini",
+      "ruler": "Ketu",
+      "date_range": "[Day 1–2 — update with real transit dates]",
+      "prediction": "Favors fast starts — a new routine, a first attempt, a quick decision that pays off. Physical energy runs high, so use it before it turns restless."
+    },
+    {
+      "order": 2,
+      "name": "Bharani",
+      "slug": "bharani",
+      "ruler": "Venus",
+      "date_range": "[Day 2–3 — update with real transit dates]",
+      "prediction": "A period of creative intensity and letting go of something that's run its course. What feels like an ending is really clearing space for the next thing."
+    },
+    {
+      "order": 3,
+      "name": "Krittika",
+      "slug": "krittika",
+      "ruler": "Sun",
+      "date_range": "[Day 3–4 — update with real transit dates]",
+      "prediction": "Sharp clarity arrives — you'll see exactly what needs cutting away. Good window for honest conversations and decisive action, less so for patience."
+    },
+    {
+      "order": 4,
+      "name": "Rohini",
+      "slug": "rohini",
+      "ruler": "Moon",
+      "date_range": "[Day 4–5 — update with real transit dates]",
+      "prediction": "Growth-oriented and sensory — money, comfort, and relationships all get easier to build. A good stretch for anything that needs steady nurturing."
+    },
+    {
+      "order": 5,
+      "name": "Mrigashira",
+      "slug": "mrigashira",
+      "ruler": "Mars",
+      "date_range": "[Day 5–6 — update with real transit dates]",
+      "prediction": "Restless curiosity takes over; you'll want to search, explore, or start researching something new. Follow it, but avoid committing until the picture is clearer."
+    },
+    {
+      "order": 6,
+      "name": "Ardra",
+      "slug": "ardra",
+      "ruler": "Rahu",
+      "date_range": "[Day 6–7 — update with real transit dates]",
+      "prediction": "Expect a bit of upheaval — old structures loosen so something more honest can take their place. Uncomfortable in the moment, clarifying in hindsight."
+    },
+    {
+      "order": 7,
+      "name": "Punarvasu",
+      "slug": "punarvasu",
+      "ruler": "Jupiter",
+      "date_range": "[Day 7–8 — update with real transit dates]",
+      "prediction": "A return or renewal theme — reconnecting with a person, place, or plan you'd set aside. Optimism is well-supported this period."
+    },
+    {
+      "order": 8,
+      "name": "Pushya",
+      "slug": "pushya",
+      "ruler": "Saturn",
+      "date_range": "[Day 8–9 — update with real transit dates]",
+      "prediction": "One of the steadier windows — good for routines, commitments, and anything that needs consistency rather than excitement."
+    },
+    {
+      "order": 9,
+      "name": "Ashlesha",
+      "slug": "ashlesha",
+      "ruler": "Mercury",
+      "date_range": "[Day 9–10 — update with real transit dates]",
+      "prediction": "Intuition runs sharp; trust what you're sensing beneath the surface of a situation. Not the best window for taking things at face value."
+    },
+    {
+      "order": 10,
+      "name": "Magha",
+      "slug": "magha",
+      "ruler": "Ketu",
+      "date_range": "[Day 10–11 — update with real transit dates]",
+      "prediction": "Themes of legacy, authority, and ancestry surface. A good period for honoring where you come from while deciding what to carry forward."
+    },
+    {
+      "order": 11,
+      "name": "Purva Phalguni",
+      "slug": "purva-phalguni",
+      "ruler": "Venus",
+      "date_range": "[Day 11–12 — update with real transit dates]",
+      "prediction": "Leans toward rest, pleasure, and creative play. Give yourself permission to enjoy something without justifying it."
+    },
+    {
+      "order": 12,
+      "name": "Uttara Phalguni",
+      "slug": "uttara-phalguni",
+      "ruler": "Sun",
+      "date_range": "[Day 12–13 — update with real transit dates]",
+      "prediction": "Favors partnership and follow-through — agreements made now tend to hold. Good window for formalizing something you've been circling."
+    },
+    {
+      "order": 13,
+      "name": "Hasta",
+      "slug": "hasta",
+      "ruler": "Moon",
+      "date_range": "[Day 13–14 — update with real transit dates]",
+      "prediction": "Skilled, hands-on energy — a strong period for craft, precision work, or finishing something that needs a careful touch."
+    },
+    {
+      "order": 14,
+      "name": "Chitra",
+      "slug": "chitra",
+      "ruler": "Mars",
+      "date_range": "[Day 14–15 — update with real transit dates]",
+      "prediction": "Design and presentation matter more than usual. Good window for anything visual, structural, or image-related."
+    },
+    {
+      "order": 15,
+      "name": "Swati",
+      "slug": "swati",
+      "ruler": "Rahu",
+      "date_range": "[Day 15–16 — update with real transit dates]",
+      "prediction": "Independence and flexibility are favored — plans that require bending with circumstances go more smoothly than rigid ones."
+    },
+    {
+      "order": 16,
+      "name": "Vishakha",
+      "slug": "vishakha",
+      "ruler": "Jupiter",
+      "date_range": "[Day 16–17 — update with real transit dates]",
+      "prediction": "Determined, goal-driven energy. Good for pushing a long-term plan forward, less suited to starting something entirely new."
+    },
+    {
+      "order": 17,
+      "name": "Anuradha",
+      "slug": "anuradha",
+      "ruler": "Saturn",
+      "date_range": "[Day 17–18 — update with real transit dates]",
+      "prediction": "Friendship, loyalty, and devotion take center stage. A good period for deepening existing bonds rather than forming new ones."
+    },
+    {
+      "order": 18,
+      "name": "Jyeshtha",
+      "slug": "jyeshtha",
+      "ruler": "Mercury",
+      "date_range": "[Day 18–19 — update with real transit dates]",
+      "prediction": "Leadership and protection themes — you may find yourself stepping up for someone or something. Handle authority carefully this period."
+    },
+    {
+      "order": 19,
+      "name": "Mula",
+      "slug": "mula",
+      "ruler": "Ketu",
+      "date_range": "[Day 19–20 — update with real transit dates]",
+      "prediction": "An uprooting, get-to-the-bottom-of-it energy. Good for investigating and closing loops, not for starting anything fragile."
+    },
+    {
+      "order": 20,
+      "name": "Purva Ashadha",
+      "slug": "purva-ashadha",
+      "ruler": "Venus",
+      "date_range": "[Day 20–21 — update with real transit dates]",
+      "prediction": "Early-stage confidence and momentum — good for the opening move of something ambitious, even before all details are settled."
+    },
+    {
+      "order": 21,
+      "name": "Uttara Ashadha",
+      "slug": "uttara-ashadha",
+      "ruler": "Sun",
+      "date_range": "[Day 21–22 — update with real transit dates]",
+      "prediction": "Favors lasting achievement over quick wins. What you build carefully now tends to hold up well over time."
+    },
+    {
+      "order": 22,
+      "name": "Shravana",
+      "slug": "shravana",
+      "ruler": "Moon",
+      "date_range": "[Day 22–23 — update with real transit dates]",
+      "prediction": "A listening, learning period — conversations, study, and absorbing new information all go well. Less suited to broadcasting your own opinions."
+    },
+    {
+      "order": 23,
+      "name": "Dhanishta",
+      "slug": "dhanishta",
+      "ruler": "Mars",
+      "date_range": "[Day 23–24 — update with real transit dates]",
+      "prediction": "Rhythmic, prosperous energy tied to music, groups, and material gain. Good window for collaborative projects with momentum."
+    },
+    {
+      "order": 24,
+      "name": "Shatabhisha",
+      "slug": "shatabhisha",
+      "ruler": "Rahu",
+      "date_range": "[Day 24–25 — update with real transit dates]",
+      "prediction": "Healing and hidden-truth themes — good for research, therapy, or quietly working through something private."
+    },
+    {
+      "order": 25,
+      "name": "Purva Bhadrapada",
+      "slug": "purva-bhadrapada",
+      "ruler": "Jupiter",
+      "date_range": "[Day 25–26 — update with real transit dates]",
+      "prediction": "Intense, transformative energy. Big realizations are more likely now than small, comfortable ones."
+    },
+    {
+      "order": 26,
+      "name": "Uttara Bhadrapada",
+      "slug": "uttara-bhadrapada",
+      "ruler": "Saturn",
+      "date_range": "[Day 26–27 — update with real transit dates]",
+      "prediction": "A deep, slow-moving period well suited to reflection, rest, or spiritual practice rather than fast action."
+    },
+    {
+      "order": 27,
+      "name": "Revati",
+      "slug": "revati",
+      "ruler": "Mercury",
+      "date_range": "[Day 27–28 — update with real transit dates]",
+      "prediction": "A completion and transition theme — wrapping up one chapter gently before the next one properly begins."
+    }
+  ]
+}

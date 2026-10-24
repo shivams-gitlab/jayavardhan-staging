@@ -1,0 +1,81 @@
+# ============================================================
+# Decap CMS config
+#
+# RECOMMENDED SETUP (easiest — no OAuth app to build yourself):
+#   1. Deploy this site to Netlify (free tier is fine) instead of / in
+#      addition to Cloudflare Pages or GitHub Pages.
+#   2. In the Netlify dashboard: Site settings → Identity → Enable Identity.
+#   3. Site settings → Identity → Services → Git Gateway → Enable.
+#   4. Site settings → Identity → Invite users → invite your own email.
+#   5. Visit https://YOUR-SITE.netlify.app/admin, accept the invite,
+#      set a password, and log in.
+#
+# The backend below is set to "git-gateway", which matches that setup.
+# If you'd rather NOT use Netlify at all, see the alternate "github"
+# backend example commented out below — it requires creating your own
+# GitHub OAuth App plus a small OAuth proxy (more setup, more control).
+# ============================================================
+
+backend:
+  name: git-gateway
+  branch: main
+
+# --- Alternative: direct GitHub backend (no Netlify) ---
+# backend:
+#   name: github
+#   repo: your-github-username/your-repo-name
+#   branch: main
+#   base_url: https://your-oauth-proxy.example.com
+#   auth_endpoint: auth
+
+media_folder: "images"
+public_folder: "/images"
+
+collections:
+
+  - name: "blog"
+    label: "Blog Posts"
+    files:
+      - name: "posts"
+        label: "All Blog Posts"
+        file: "data/posts.json"
+        fields:
+          - label: "Posts"
+            name: "posts"
+            widget: "list"
+            summary: "{{title}} — {{date}}"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "URL Slug", name: "slug", widget: "string", hint: "Used in the post's web address — lowercase, hyphens, no spaces, e.g. my-new-post" }
+              - { label: "Cover Image", name: "image", widget: "image", required: false }
+              - label: "Tag"
+                name: "tag"
+                widget: "select"
+                options: ["Basics", "Transits", "Timing", "Remedies", "Relationships", "Career", "Muhurta", "Gemstones", "Research"]
+              - { label: "Excerpt", name: "excerpt", widget: "text", hint: "One or two sentences shown on the blog index and homepage" }
+              - { label: "Publish Date", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false, hint: "Used for sorting — newest shows first" }
+              - { label: "Display Date", name: "date_display", widget: "string", hint: "How the date appears on the page, e.g. August 20, 2026" }
+              - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "horoscope"
+    label: "Monthly Horoscope"
+    files:
+      - name: "horoscope"
+        label: "Monthly Predictions"
+        file: "data/horoscope.json"
+        fields:
+          - { label: "Month Label", name: "month_label", widget: "string", hint: "Shown at the top of the page, e.g. September 2026" }
+          - label: "Nakshatra Predictions"
+            name: "nakshatras"
+            widget: "list"
+            summary: "{{order}}. {{name}} — {{date_range}}"
+            fields:
+              - { label: "Order (1–27)", name: "order", widget: "number", value_type: "int" }
+              - { label: "Nakshatra Name", name: "name", widget: "string" }
+              - { label: "URL Slug", name: "slug", widget: "string", hint: "Lowercase, hyphens, e.g. purva-ashadha — used for the jump link" }
+              - label: "Ruling Planet"
+                name: "ruler"
+                widget: "select"
+                options: ["Sun", "Moon", "Mars", "Mercury", "Jupiter", "Venus", "Saturn", "Rahu", "Ketu"]
+              - { label: "Transit Date Range", name: "date_range", widget: "string", hint: "e.g. Sep 12 – Sep 13" }
+              - { label: "Prediction", name: "prediction", widget: "text", hint: "2–3 sentences" }
