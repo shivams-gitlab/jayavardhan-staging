@@ -17,59 +17,29 @@
 -->
 <html lang="en">
 <head>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-V2GH8W3CLH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-V2GH8W3CLH');
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Donations — Jayavardhan Vedic Astrology</title>
 <meta name="description" content="Cancellation policy, what to expect during a consultation, and how to send a donation or payment.">
+<link rel="icon" type="image/png" href="images/my-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
-<style>
-  /* .legal-body is the same plain-prose text style used on
-     terms.html/privacy.html/consent.html — repeated here rather than
-     added to the shared stylesheet, matching how those pages do it. */
-  .legal-body { max-width: 720px; }
-  .legal-body p { font-size: .98rem; color: var(--ink-soft); }
 
-  /* Payments section: PayPal + UPI side by side, divided the same
-     way .service-grid divides its cards (hairline border-left),
-     just as a simple 2-column variant. */
-  .pay-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    border-top: 1px solid var(--line);
-  }
-  .pay-card {
-    padding: 32px 30px;
-    border-left: 1px solid var(--line);
-  }
-  .pay-card:first-child { border-left: none; }
-  .pay-card h3 { margin-bottom: 8px; }
-  .pay-card .btn { margin-top: 10px; margin-bottom: 14px; }
-  .pay-qr {
-    width: 220px;
-    max-width: 100%;
-    aspect-ratio: 1 / 1;
-    background: var(--sand);
-    border: 1px solid var(--line);
-    margin: 10px 0 14px;
-    overflow: hidden;
-  }
-  .pay-qr img { width: 100%; height: 100%; object-fit: contain; }
-  .pay-upi-id { font-size: .95rem; color: var(--ink); }
-  .pay-note { font-size: .82rem; color: var(--ink-soft); font-style: italic; }
-
-  @media (max-width: 700px) {
-    .pay-grid { grid-template-columns: 1fr; }
-    .pay-card { border-left: none; border-top: 1px solid var(--line); }
-    .pay-card:first-child { border-top: none; }
-  }
-</style>
 </head>
 <body>
 
- <header class="site-header">
+<header class="site-header">
   <div class="wrap">
     <a href="index.html" class="brand">
       <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -87,12 +57,14 @@
              and shown via CSS on hover or keyboard focus (see style.css).
              Entries below are hand-picked/hardcoded — update this list
              by hand whenever you want to feature a different post. -->
+        <li><a href="about.html">About Me</a></li>
         <li class="nav-dropdown">
-          <a href="blog.html">Blog <span class="nav-caret" aria-hidden="true">&#9662;</span></a>
+          <a href="blog.html">Blog <span class="nav-caret" aria-hidden="true">🢗</span></a>
           <ul class="nav-dropdown-menu">
-            <li><a href="blog/post.html?slug=rising-sign">Sri Rama</a></li>
-            <li><a href="blog/post.html?slug=saturn-return">Alzheimer's Research</a></li>
-            <li><a href="blog/post.html?slug=muhurta-guide">Prostate Cancer</a></li>
+            <li><a href="blog/post.html?slug=sri-rama">Sri Rama</a></li>
+            <li><a href="blog/post.html?slug=achyutananda-dasa">Achyutānanda Dasa</a></li>
+            <li><a href="blog/post.html?slug=alzheimers-research">Alzheimer's Research</a></li>
+            <li><a href="blog/post.html?slug=prostate-research">Prostate Cancer</a></li>
             <li class="nav-dropdown-divider"><a href="blog.html">View All Posts &rarr;</a></li>
           </ul>
         </li>
@@ -190,9 +162,9 @@
       <p>Please read before booking a donation-based or paid session.</p>
     </div>
     <div class="legal-body">
-      <p>If you wish to reschedule or cancel the appointment (except 10-min Audio), please do let me know <b>72 hours ~ 3 days</b> prior to our meeting. I spend considerable time on preparing for each consultation, your timely communication will help me better manage my time.</p>
-      <p>If you cancel twice for the same consultation request, you would be considerably deprioritized for all your future requests.</p>
       <p>There is no cancellation for "10-min Audio Consultation" or "Muhurta Consultation" and no refunds will be provided.</p>
+      <p>If you wish to reschedule or cancel the appointment (except 10-min Audio or Muhurta), please do let me know <b>72 hours ~ 3 days</b> prior to our meeting. I spend considerable time on preparing for each consultation, your timely communication will help me better manage my time.</p>
+      <p>If you cancel twice for the same consultation request, you would be considerably deprioritized for all your future requests.</p>
       <p>No Refunds will be provided for any donation-based consultation as payments are based on your satisfaction.</p>
     </div>
   </div>
@@ -219,8 +191,9 @@
         <h4>Site</h4>
         <ul>
           <li><a href="index.html">Home / Services</a></li>
+          <li><a href="about.html">About Me</a></li>
           <li><a href="blog.html">Blog</a></li>
-          <li><a href="horoscope.html">Monthly Horoscope</a></li>
+          <!--<li><a href="horoscope.html">Monthly Horoscope</a></li>-->
           <li><a href="donations.html">Donations</a></li>
           <li><a href="book-reading.html">Book a Reading</a></li>
         </ul>
@@ -228,10 +201,11 @@
       <div class="footer-col">
         <h4>Connect</h4>
         <ul>
-          <li><a href="#">YouTube</a></li>
-          <li><a href="#">Instagram</a></li>
-          <li><a href="#">Twitter</a></li>
-          <li><a href="mailto:hello@example.com">hello@example.com</a></li>
+          <!--<li><a href="#"  target="_blank" rel="noopener noreferrer">YouTube</a></li>
+          <li><a href="https://www.instagram.com/jayavardhan_astrology/"  target="_blank" rel="noopener noreferrer"">Instagram</a></li>
+          <li><a href="https://x.com/_Jayavardhan" target="_blank" rel="noopener noreferrer">Twitter</a></li>-->
+          <li><a href="https://www.linkedin.com/company/jayavardhan-astrology" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          <li><a href="mailto:hello@jayavardhan.org">hello@jayavardhan.org</a></li>
         </ul>
       </div>
       <div class="footer-col">

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<!--
+  about.html - About Me
+  Reuses existing site components (.page-header, .section, .cta-band).
+  The two-column layout and photo styles are scoped in the <style> block
+  below; move them into css/style.css if you prefer.
+-->
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-V2GH8W3CLH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-V2GH8W3CLH');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Me - Jayavardhan Vedic Astrology</title>
+<meta name="description" content="Technologist turned Jyotiṣa practitioner. Trained under Pt. Sanjay Rath, Pt. Freedom Cole and Dr. Eric Rosenbush in the Śrī Achyutānanda Dasa tradition.">
+<link rel="icon" type="image/png" href="images/my-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  .about-grid { display: grid; grid-template-columns: minmax(0, 1fr) 380px; gap: 64px; align-items: start; }
+  .about-text { max-width: 680px; }
+  .about-text h3 { margin-top: 1.6em; }
+  .about-text h3:first-child { margin-top: 0; }
+  .about-text p { font-size: 1rem; }
+  .about-photo { position: sticky; top: 32px; margin: 0; }
+  .about-photo img { width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: cover; border: 1px solid var(--line); background: var(--sand); }
+  .about-photo figcaption { margin-top: 12px; font-size: .88rem; color: var(--ink-soft); }
+  @media (max-width: 900px) {
+    .about-grid { grid-template-columns: 1fr; gap: 32px; }
+    .about-photo { position: static; order: -1; max-width: 360px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a href="index.html" class="brand">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.4"/>
+        <path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9 17 7M7 17l-2.1 2.1" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+      </svg>
+      Jayavardhan
+    </a>
+    <nav>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+      <ul class="nav-links">
+        <li><a href="index.html">Services</a></li>
+        <!-- Blog dropdown: "nav-dropdown" is the hover/focus zone, the
+             nested <ul class="nav-dropdown-menu"> is hidden by default
+             and shown via CSS on hover or keyboard focus (see style.css).
+             Entries below are hand-picked/hardcoded - update this list
+             by hand whenever you want to feature a different post. -->
+        <li><a href="about.html" aria-current="page">About Me</a></li>
+        <li class="nav-dropdown">
+          <a href="blog.html">Blog <span class="nav-caret" aria-hidden="true">🢗</span></a>
+          <ul class="nav-dropdown-menu">
+            <li><a href="blog/post.html?slug=sri-rama">Sri Rama</a></li>
+            <li><a href="blog/post.html?slug=achyutananda-dasa">Achyutānanda Dasa</a></li>
+            <li><a href="blog/post.html?slug=alzheimers-research">Alzheimer's Research</a></li>
+            <li><a href="blog/post.html?slug=prostate-research">Prostate Cancer</a></li>
+            <li class="nav-dropdown-divider"><a href="blog.html">View All Posts &rarr;</a></li>
+          </ul>
+        </li>
+        <!--<li><a href="horoscope.html">Monthly Horoscope</a></li>-->
+        <li><a href="donations.html">Donations</a></li>
+        <li class="nav-cta"><a href="book-reading.html" class="btn btn--primary" style="padding: 8px">Book Your Reading</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="page-header">
+  <div class="wrap">
+    <h1>About Me</h1>
+    <p>Technologist turned Jyotiṣa practitioner. Trained under Pt. Sanjay Rath in the Śrī Achyutānanda Dasa tradition of Jagannath Puri.</p>
+  </div>
+</section>
+
+<!-- ============ ABOUT ME ============ -->
+<section class="section">
+  <div class="wrap about-grid">
+
+    <div class="about-text">
+      <p>I've spent my career in technology, leading cross-functional teams, launching products, and advising on decisions where the stakes were real. Alongside that, I've spent just as many years studying and practicing Jyotiṣa, the Vedic science of timing.</p>
+      <!--<p>The two have more in common than you'd expect. Both are about reading patterns, weighing variables, and choosing the right moment to act. I bring that same discipline to your chart.</p>-->
+
+      <h3>Background</h3>
+      <p><b>Technology and management:</b> Roles at Nvidia and Flipkart, a co-founded startup, and a stint in India's national digital identity program (Aadhaar). Over a decade of leading teams and shipping products.</p>
+      <p><b>Education:</b> Electronics Engineering, an MBA and Law. I'm a scholar by temperament, and I don't offer vague answers.</p>
+      <p><b>Born 1989:</b> I've lived the questions my clients bring: when to move, when to build, when to wait.</p>
+
+      <h3>Lineage</h3>
+      <p>My Jyotiṣa training comes from three teachers, and I owe them everything I know:</p>
+      <p><b>Pt. Sanjay Rath, Pt. Freedom Cole and Dr. Eric Rosenbush</b></p>
+      <p>Through them, I belong to the Vedic tradition of Śrī Achyutānanda Dasa of Odisha, India. This is classical Jyotiṣa, not automated horoscope reports or sun-sign entertainment.</p>
+
+      <h3>How I work</h3>
+      <p><b>Precise.</b> I rectify birth times and work from your actual chart, not generalities.</p>
+      <p><b>Practical.</b> You get clear analysis,  reasoning, and remedies that fit your lifestyle.</p>
+      <p><b>Discreet.</b> Your questions and your chart stay private.</p>
+      <p><b>Honest.</b> I'll tell you what the chart shows, including what you may not want to hear.</p>
+    </div>
+
+    <figure class="about-photo">
+      <img src="images/about.png" width="900" height="900" alt="Portrait of Jayavardhan in front of a Vedic zodiac chart" loading="eager">
+      <!--<figcaption>Jayavardhan</figcaption>-->
+    </figure>
+
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap">
+    <h2>Ready to Book?</h2>
+    <p>If my approach speaks to you, book a session and let's look at your chart together.</p>
+    <a href="book-reading.html" class="btn btn--primary">Book a Reading</a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">Jayavardhan</div>
+        <p>Vedic astrology readings and guidance rooted in traditional Jyotish practice.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Site</h4>
+        <ul>
+          <li><a href="index.html">Home / Services</a></li>
+          <li><a href="about.html">About Me</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <!--<li><a href="horoscope.html">Monthly Horoscope</a></li>-->
+          <li><a href="donations.html">Donations</a></li>
+          <li><a href="book-reading.html">Book a Reading</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul>
+          <!--<li><a href="#"  target="_blank" rel="noopener noreferrer">YouTube</a></li>
+          <li><a href="https://www.instagram.com/jayavardhan_astrology/"  target="_blank" rel="noopener noreferrer"">Instagram</a></li>
+          <li><a href="https://x.com/_Jayavardhan" target="_blank" rel="noopener noreferrer">Twitter</a></li>-->
+          <li><a href="https://www.linkedin.com/company/jayavardhan-astrology" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          <li><a href="mailto:hello@jayavardhan.org">hello@jayavardhan.org</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="terms.html">Terms &amp; Conditions</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="consent.html">Informed Consent &amp; Liability Waiver</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; <span id="year"></span> Jayavardhan. All rights reserved.</span>
+      <span>Made with care, under the stars.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/nav.js"></script>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

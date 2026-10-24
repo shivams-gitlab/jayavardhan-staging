@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<!--
+  book-reading.html
+  ------------------------------------------------------------------
+  The booking form. Two things worth knowing before editing this file:
+
+  1. FORM SUBMISSION: the <form> below posts directly to Web3Forms
+     (https://web3forms.com), a free form-backend service — there is
+     no server of our own. Replace the "access_key" hidden input's
+     value with your real Web3Forms key before this goes live, or
+     submissions will fail. The inline <script> near the bottom
+     intercepts the normal form submit, sends it via fetch() instead
+     so the page doesn't reload, and swaps in the "form-success"
+     message on success.
+
+  2. SIDEBAR: the "Choose a Service" list on the right is hand-written
+     here (not pulled from data/posts.json or anywhere dynamic) — if
+     you change a price or service name in the Services section of
+     index.html, update it here too so the two stay in sync.
+  ------------------------------------------------------------------
+-->
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-V2GH8W3CLH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-V2GH8W3CLH');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book Audio Consultation - Jayavardhan Vedic Astrology</title>
+<meta name="description" content="Book a personalized Vedic astrology reading.">
+<link rel="icon" type="image/png" href="images/my-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a href="index.html" class="brand">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.4"/>
+        <path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9 17 7M7 17l-2.1 2.1" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+      </svg>
+      Jayavardhan
+    </a>
+    <nav>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+      <ul class="nav-links">
+        <li><a href="index.html">Services</a></li>
+        <!-- Blog dropdown: "nav-dropdown" is the hover/focus zone, the
+             nested <ul class="nav-dropdown-menu"> is hidden by default
+             and shown via CSS on hover or keyboard focus (see style.css).
+             Entries below are hand-picked/hardcoded — update this list
+             by hand whenever you want to feature a different post. -->
+        <li><a href="about.html">About Me</a></li>
+        <li class="nav-dropdown">
+          <a href="blog.html">Blog <span class="nav-caret" aria-hidden="true">🢗</span></a>
+          <ul class="nav-dropdown-menu">
+            <li><a href="blog/post.html?slug=sri-rama">Sri Rama</a></li>
+            <li><a href="blog/post.html?slug=achyutananda-dasa">Achyutānanda Dasa</a></li>
+            <li><a href="blog/post.html?slug=alzheimers-research">Alzheimer's Research</a></li>
+            <li><a href="blog/post.html?slug=prostate-research">Prostate Cancer</a></li>
+            <li class="nav-dropdown-divider"><a href="blog.html">View All Posts &rarr;</a></li>
+          </ul>
+        </li>
+        <!--<li><a href="horoscope.html">Monthly Horoscope</a></li>-->
+        <li><a href="donations.html">Donations</a></li>
+        <!--<li><a href="book-reading.html">Book a Reading</a></li>-->
+        <li class="nav-cta"><a href="book-reading.html" class="btn btn--primary" style="padding: 8px">Book Your Reading</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="page-header">
+  <div class="wrap">
+    <h1>Book a 10-min Audio Consultation</h1>
+    <p>Share a few details below and I'll follow up by email to confirm your request and your birth details.</p>
+  </div>
+</section>
+
+
+<!-- ============ FORM ============ -->
+<section class="section">
+  <div class="wrap">
+    <div class="booking-layout">
+    <div class="form-wrap">
+
+      <div class="form-success" id="form-success" role="status">
+        Thank you — your request has been sent. I'll email you within 1–2 business days to confirm your booking.
+      </div>
+
+      <!-- 
+    =======================================================================
+
+    This is a working contact form. To receive email, 
+    Replace YOUR_ACCESS_KEY_HERE with your actual Access Key.
+
+    Create Access Key here 👉 https://web3forms.com/
+
+    =======================================================================
+ -->
+      
+      <form id="booking-form" action="https://api.web3forms.com/submit" method="POST" class="consultation-form">
+
+        <!-- W3Forms Access Key (Replace with your actual key) -->
+        <input type="hidden" name="access_key" value="5359562a-1abf-458c-ac7d-14265825f767">
+
+        <!-- Optional: Subject line for submission notification emails -->
+        <input type="hidden" name="subject" value="New Vedic Astrology Consultation Request">
+
+        <!-- Optional: Bot spam protection honeypot -->
+        <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+        <div class="form-row">
+          <label for="service">Which Reading Are You Interested In? <span class="required">*</span></label>
+          <select id="service" name="service" required>
+            <option value="">Select a service</option>
+            <option value="Initial Chart Reading">Initial Chart Reading</option>
+            <option value="Follow-up Reading">Follow-up Reading</option>
+            <option value="Muhurta Consultation">Muhurta Consultation</option>
+            <option value="10-min Audio">10-min Audio</option>
+          </select>
+        </div>
+            
+        <!-- 1. First and Last Name -->
+        <div class="form-group">
+            <label for="full_name">First and Last Name <span class="required">*</span></label>
+            <input type="text" id="full_name" name="full_name" required placeholder="Your answer">
+        </div>
+
+        <!-- 2. Your Email -->
+        <div class="form-group">
+            <label for="email">Your Email <span class="required">*</span></label>
+            <input type="email" id="email" name="email" required placeholder="Your answer">
+        </div>
+
+        <!-- 3. Date of Birth -->
+        <div class="form-group">
+            <label for="dob">Date of Birth <span class="required">*</span></label>
+            <input type="date" id="dob" name="birth_date" required>
+        </div>
+
+        <!-- 4. Place of Birth -->
+        <div class="form-group">
+            <label for="pob">Place of Birth (Town, City, State, Country) <span class="required">*</span></label>
+            <input type="text" id="pob" name="birth_place" required placeholder="Your answer">
+        </div>
+
+        <!-- 5. Time of Birth -->
+        <div class="form-group">
+            <label for="tob">Time of Birth <span class="required">*</span></label>
+            <input type="text" id="tob" name="birth_time" required placeholder="e.g. 14:30 or 2:30 PM">
+        </div>
+
+        <!-- 6. Birth Time Accuracy -->
+        <div class="form-group">
+            <label>How certain are you of the birth time provided? Do you think it is accurate? <span class="required">*</span></label>
+            <div class="radio-option">
+                <label><input type="radio" name="birth_time_accuracy" value="Yes, birth time is accurate" required> Yes, birth time is accurate</label>
+            </div>
+            <div class="radio-option">
+                <label><input type="radio" name="birth_time_accuracy" value="No, I'm not sure of accuracy of birth time"> No, I'm not sure of accuracy of birth time</label>
+            </div>
+        </div>
+
+        <!-- 7. Source of Birth data 
+        <div class="form-group">
+            <label>Source of Birth data</label>
+            <div class="radio-option">
+                <label><input type="radio" name="source_of_birth_data" value="Birth Certificate"> Birth Certificate</label>
+            </div>
+            <div class="radio-option">
+                <label><input type="radio" name="source_of_birth_data" value="Mother/Family"> Mother/Family</label>
+            </div>
+            <div class="radio-option">
+                <label><input type="radio" name="source_of_birth_data" value="Recalling from memory"> Recalling from memory</label>
+            </div>
+        </div>-->
+
+        <!-- 8. Consultation For Whom 
+        <div class="form-group">
+            <label>For whom are you taking this reading? <span class="required">*</span></label>
+            <div class="radio-option">
+                <label><input type="radio" name="reading_for_whom" value="Myself" required> Myself</label>
+            </div>
+            <div class="radio-option">
+                <label><input type="radio" name="reading_for_whom" value="Children - Son/Daughter"> Children - Son/Daughter</label>
+            </div>
+            <div class="radio-option">
+                <label><input type="radio" name="reading_for_whom" value="Spouse/Partner - Wife/Husband"> Spouse/Partner - Wife/Husband</label>
+            </div>
+            <div class="radio-option">
+                <label><input type="radio" name="reading_for_whom" value="Parents"> Parents</label>
+            </div>
+            <div class="radio-option">
+                <label><input type="radio" name="reading_for_whom" value="Others"> Others</label>
+            </div>
+        </div>-->
+
+        <!-- 9. Focus Area -->
+        <div class="form-group">
+            <label>What is the reading about? <span class="required">*</span></label>
+            <div class="radio-option">
+                <label><input type="radio" name="reading_focus_area" value="Career/Wealth/Finances" required> Career/Wealth/Finances</label>
+            </div>
+            <div class="radio-option">
+                <label><input type="radio" name="reading_focus_area" value="Health"> Health</label>
+            </div>
+            <div class="radio-option">
+                <label><input type="radio" name="reading_focus_area" value="Children/Child Birth/Conception"> Children/Child Birth/Conception</label>
+            </div>
+            <div class="radio-option">
+                <label><input type="radio" name="reading_focus_area" value="Relationship-Marriage/Spouse/Partner"> Relationship-Marriage/Spouse/Partner</label>
+            </div>
+            <div class="radio-option">
+                <label><input type="radio" name="reading_focus_area" value="Property"> Property/House</label>
+            </div>
+            <div class="radio-option">
+                <label><input type="radio" name="reading_focus_area" value="Other areas"> Other (please explain in notes below)</label>
+            </div>
+        </div>
+
+        <!-- 10. Consultation Objective 
+        <div class="form-group">
+            <label for="objective">What is the objective of your consultation? What are you expecting and looking forward to? <span class="required">*</span></label>
+            <textarea id="objective" name="consultation_objective" rows="4" required placeholder="Your answer"></textarea>
+        </div>-->
+
+        <!-- 11. Previous Remedies -->
+        <div class="form-group">
+            <label for="previous_remedies">Please list remedies you have done or are presently doing, including gemstones and mantras?</label>
+            <textarea id="previous_remedies" name="previous_remedies" rows="4" placeholder="Your answer"></textarea>
+        </div>
+
+        <!-- 12. Other Notes -->
+        <div class="form-group">
+            <label for="notes">Any other notes for consideration</label>
+            <textarea id="notes" name="additional_notes" rows="4" required placeholder="Your answer"></textarea>
+        </div>
+
+        <!-- 13. Openness to Remedies -->
+        <div class="form-group">
+            <label>Are you open to doing remedies? If so, what kind suits your situation? <span class="required">*</span><br>
+                <small style="color: #666; font-weight: normal;">(Note: certain complex cases/karma cannot be resolved without religious remedies; in such cases lifestyle remedies make only the experience of situation better, not resolve the root cause of the problem.)</small>
+            </label>
+            <div class="checkbox-option">
+                <label><input type="checkbox" name="open_to_remedies[]" value="NO, I do not want any remedies."> NO, I do not want any remedies.</label>
+            </div>
+            <div class="checkbox-option">
+                <label><input type="checkbox" name="open_to_remedies[]" value="YES, but only LIFESTYLE remedies like what to donate, eat, wear, gemstones etc"> YES, but only LIFESTYLE remedies like what to donate, eat, wear, gemstones etc</label>
+            </div>
+            <div class="checkbox-option">
+                <label><input type="checkbox" name="open_to_remedies[]" value="YES, I'm open to both RELIGIOUS (mantra, puja) and LIFESTYLE remedies"> YES, I'm open to both RELIGIOUS (mantra, puja) and LIFESTYLE remedies</label>
+            </div>
+        </div>
+
+        <!-- 14. Consent and Waiver -->
+        <div class="form-group">
+            <label>Informed Consent and Liability Waiver<span class="required">*</span></label>
+            <div class="checkbox-option">
+                <label>
+                    <input type="checkbox" name="terms_waiver_consent" value="Accepted" required> 
+                    I've read and fully understand the terms and conditions detailed in this Informed Consent and Liability Waiver document.
+                </label>
+            </div>
+        </div>
+
+        <!-- Notice Box 
+        <div class="notice-card">
+            <strong>Please Note:</strong>
+            <p>If in response I suggest you submit the request some other time, please consider asking some other time then, preferably after 40-days. Thank you for understanding.</p>
+        </div>-->
+
+        <button type="submit" class="btn btn--primary btn--block">Submit Request</button>
+        <p class="form-note">This form is powered by Web3Forms — your details are sent directly to my inbox and are not stored on this site.</p>
+      </form>
+
+
+      
+    </div>
+
+    <aside class="booking-sidebar">
+      <div class="pay-card">
+        <h3>PayPal (Global)</h3>
+        <a href="https://www.paypal.com/ncp/payment/KM95F9VW5M7AG" class="btn btn--ghost" target="_blank" rel="noopener">Pay via PayPal</a>
+        <!--<p class="pay-note">Replace this link with your real PayPal.me link or business PayPal email before publishing.</p>-->
+        <p>After you pay, submit the consultation form or email us at hello@jayavardhan.org</p>
+        <p>The consultation will be delivered to your email within 48 business working hours AFTER you confirm the details over the email.</p>
+        
+      </div>
+    </aside>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">Jayavardhan</div>
+        <p>Vedic astrology readings and guidance rooted in traditional Jyotish practice.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Site</h4>
+        <ul>
+          <li><a href="index.html">Home / Services</a></li>
+          <li><a href="about.html">About Me</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <!--<li><a href="horoscope.html">Monthly Horoscope</a></li>-->
+          <li><a href="donations.html">Donations</a></li>
+          <li><a href="book-reading.html">Book a Reading</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul>
+          <!--<li><a href="#"  target="_blank" rel="noopener noreferrer">YouTube</a></li>
+          <li><a href="https://www.instagram.com/jayavardhan_astrology/"  target="_blank" rel="noopener noreferrer"">Instagram</a></li>
+          <li><a href="https://x.com/_Jayavardhan" target="_blank" rel="noopener noreferrer">Twitter</a></li>-->
+          <li><a href="https://www.linkedin.com/company/jayavardhan-astrology" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          <li><a href="mailto:hello@jayavardhan.org">hello@jayavardhan.org</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="terms.html">Terms &amp; Conditions</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="consent.html">Informed Consent &amp; Liability Waiver</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; <span id="year"></span> Jayavardhan. All rights reserved.</span>
+      <span>Made with care, under the stars.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/nav.js"></script>
+<script>
+// Footer copyright year — trivial, but keeps it from going stale.
+document.getElementById('year').textContent = new Date().getFullYear();
+
+// Intercept the form's normal submit (which would reload the page)
+// and send it to Web3Forms via fetch() instead, so we can show the
+// "form-success" message inline without navigating away.
+document.getElementById('booking-form').addEventListener('submit', function (e) {
+  e.preventDefault(); // stop the browser's default full-page submit
+  var form = e.target;
+  var data = new FormData(form); // collects every named input's value automatically
+  var successBox = document.getElementById('form-success');
+
+  fetch(form.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } })
+    .then(function (res) { return res.json(); })
+    .then(function (json) {
+      if (json.success) {
+        // Web3Forms confirms it received the submission — hide the form,
+        // show the thank-you message in its place.
+        form.style.display = 'none';
+        successBox.style.display = 'block';
+      } else {
+        // Request reached Web3Forms but it reported a failure (e.g. bad
+        // access key) — surface something rather than failing silently.
+        alert('Something went wrong — please try again or email directly.');
+      }
+    })
+    .catch(function () {
+      // Network error, or Web3Forms unreachable entirely.
+      alert('Something went wrong — please try again or email directly.');
+    });
+});
+</script>
+
+</body>
+</html>
